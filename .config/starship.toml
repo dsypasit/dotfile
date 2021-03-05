@@ -1,0 +1,35 @@
+[character]
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[V](bold green) "
+
+[python]
+symbol = ' '
+
+[directory]
+style = "#f07167"
+
+[git_branch]
+style = "bold #55a630"
+
+[git_status]
+format = "[$all_status$ahead_behind](bold red) "
+
+#status
+untracked = "[ untracked ](bold red)"
+modified = "[ modified ](bold red)"
+deleted = "[✘ deleted ](bold red)"
+renamed = " renamed "
+
+staged = "[ stage ](bold #f77f00)"
+
+#ahead_behind
+ahead = "[⇡](bold green)"
+behind = "[⇣](bold green)"
+
+[username]
+style_user = "#118ab2 bold"
+style_root = "black bold"
+format = "[ ](#7286a0)[ $user]($style) "
+disabled = false
+show_always = true
+

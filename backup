@@ -1,0 +1,26 @@
+#!/bin/bash
+config=(~/.config/starship.toml, ~/.bashrc, ~/.zshrc, ~/.config/ranger, ~/.config/alacritty, ~/.config/dunst, ~/.config/vifm, ~/.config/picom, ~/.config/polybar, ~/.i3,)
+
+for i in "${config[@]}";do
+	name=${i##*/}
+	if [[ $i =~ ".config" ]]; then
+		cp -R ${i::-1} ~/my_linux_env/.config/${name::-1}
+	else
+		cp -R ${i::-1} ~/my_linux_env/${name::-1}
+	fi
+done
+git add .
+
+echo "Enter the commit message:"
+read message
+
+if [[ -z "$message" ]];then
+	git commit -m "backup"
+else
+	git commit -m "$message"
+fi
+
+git push origin main
+clear
+echo "Backup success!!"
+
