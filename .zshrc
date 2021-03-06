@@ -139,7 +139,7 @@ alias rh='cd $PWD;python3 -m http.server --cgi 8080'
 alias cf='fc-list'
 alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="source ~/my_linux_env/backup"
+alias mb="~/my_linux_env/backup"
 alias w='feh --bg-fill --randomize ~/wallpapers'
 
 alias weather='clear && curl wttr.in'
