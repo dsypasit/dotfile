@@ -17,18 +17,18 @@ for i in "${config[@]}";do
 		fi
 	fi
 done
-#git add .
+git add .
 
-#echo "Enter the commit message:"
-#read message
+echo "Enter the commit message:"
+read message
 
-#if [[ -z "$message" ]];then
-	#git commit -m "backup"
-#else
-	#git commit -m "$message"
-#fi
+if [[ -z "$message" ]];then
+	git commit -m "backup"
+else
+	git commit -m "$message"
+fi
 
-#git push origin main
-#clear
-#echo "Backup success!!"
+git push origin main
+clear
+echo "Backup success!!"
 
