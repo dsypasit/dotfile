@@ -17,6 +17,7 @@ for i in "${config[@]}";do
 		fi
 	fi
 done
+cd ~/my_linux_env
 git add .
 
 echo "Enter the commit message:"
