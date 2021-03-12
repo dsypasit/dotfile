@@ -61,8 +61,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 #picom
-bindsym $mod+p exec "picom --experimental-backends"
-bindsym $mod+Shift+p exec "killall picom"
+bindsym $mod+Shift+p exec "picom --experimental-backends || killall picom"
 
 #Switch langauge
 exec_always --no-startup-id setxkbmap -layout 'us,th'
@@ -260,8 +259,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #}
 
 # hide/unhide i3bar
-bindsym $mod+m exec killall polybar
-bindsym $mod+Shift+m exec $HOME/.config/polybar/launch.sh
+bindsym $mod+Shift+m exec "killall polybar || $HOME/.config/polybar/launch.sh"
+
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
