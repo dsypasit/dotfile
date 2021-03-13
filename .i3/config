@@ -30,20 +30,20 @@ bindsym $mod+d layout toggle split
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+w exec chromium
+bindsym $mod+w exec chromium
 bindsym $mod+Shift+f exec alacritty -e ranger
 bindsym $mod+n workspace 5;  exec nitrogen
 bindsym $mod+Shift+d workspace 3;  exec discord
 
 bindsym $mod+space --release exec "rofi -combi-modi drun,window,ssh -show combi -modi combi"
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
-bindsym $mod+Ctrl+p workspace 5; exec pavucontrol
+bindsym $mod+p workspace 5; exec pavucontrol
 #bindsym $mod+Ctrl+b exec gnome-terminal -e 'bmenu'
 
 #interactive screenshot by pressing printscreen
-bindsym Print exec flameshot gui -p /home/dsy/Pictures
-bindsym Control+Print exec flameshot full -c -p /home/dsy/Pictures
+bindsym $mod+Shift+s exec flameshot gui -p /home/dsy/Pictures
+bindsym Print exec flameshot full -c -p /home/dsy/Pictures
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -276,7 +276,8 @@ client.background       #2B2C2B
 
 # Set inner/outer gaps
 gaps inner 20
-gaps outer -2
+gaps outer 0
+gaps top 30
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

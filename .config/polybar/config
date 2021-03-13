@@ -30,17 +30,18 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 25
+height = 27
 bottom = false
 offset-x = 0
 offset-y = 0
 radius = 10
 fixed-center = false
+override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-;line-size = 3
+line-size = 3
 ;line-color = #f00
 
 border-size = 0
@@ -51,30 +52,29 @@ padding-left = 3
 padding-right = 2
 
 module-margin-left = 2
-module-margin-right = 5
+module-margin-right = 2
 
 ;font-0 = fixed:pixelsize=10;0
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-0 = Noto Sans Thai:pixelsize=12;0
-font-1 = Hack Nerd Font:pixelsize=12;1
-font-2 = FiraCode Nerd Font:pixelsize=12;1
+font-0 = Noto Sans Thai:pixelsize=10;0
+font-1 = Hack Nerd Font:pixelsize=10;1
+font-2 = FiraCode Nerd Font:pixelsize=10;1
 
 modules-left = date-time i3
 modules-center = xwindow 
-modules-right = filesystem pulseaudio xkeyboard wlan battery date powermenu
+modules-right = filesystem memory xkeyboard wlan battery date powermenu
 
-separator = 
+;separator = |
 
-tray-position = right
+;tray-position = left
 tray-padding = 3
 
 
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
-;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -93,7 +93,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = "    "
+format-prefix = "   "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -227,7 +227,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -272,14 +272,12 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =" %A %B.%d.%Y"
-date-alt = "%Y.%m.%d"
-
 time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #32efb1
 
 label =   %time%
 
@@ -287,8 +285,8 @@ label =   %time%
 type = internal/date
 interval = 5
 
-date =" %A %B.%d.%Y"
-date-alt = "%Y.%m.%d"
+date = "%d/%m/%Y"
+date-alt =" %A %d %B %Y"
 
 time = %H:%M
 time-alt = %H:%M:%S
