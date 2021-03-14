@@ -269,10 +269,6 @@ alias morning='./scripts/morning/morning.sh'
 alias scr='cd ./scripts/'
 alias cls='clear'
 
-dsy(){
-	cat ~/helpbash.txt
-}
-
 stenv()
 {
 	op=$1

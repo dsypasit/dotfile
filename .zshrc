@@ -8,7 +8,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export TERMINAL=/usr/bin/alacritty
@@ -145,7 +145,7 @@ alias w='feh --bg-fill --randomize ~/wallpapers'
 
 alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null || mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
+alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null && mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
 alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
 alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
@@ -159,9 +159,6 @@ scr()
 	cd ~/scripts/$1
 }
 
-dsy(){
-	cat ~/helpbash.txt
-}
 
 stenv()
 {
