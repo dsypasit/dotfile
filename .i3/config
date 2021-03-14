@@ -87,8 +87,8 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+v split v
-bindsym $mod+b split h
+bindsym $mod+v split v; exec notify-send 'tile vertically'
+bindsym $mod+b split h; exec notify-send 'tile horizontally'
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+Return floating toggle resize set 50 ppt 50 ppt; move position center
 
@@ -278,11 +278,15 @@ client.background       #2B2C2B
 gaps inner 20
 gaps outer 0
 gaps top 30
+bindsym $mod+Shift+t gaps top all set 30
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
+ #gaps inner all set 10
+ bindsym $mod+Shift+b gaps outer current set 150;gaps inner current set 30;exec notify-send 'Small tab'
+
+ bindsym $mod+Shift+u gaps outer current set 0; gaps top current set 30
+
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 #smart_gaps on
