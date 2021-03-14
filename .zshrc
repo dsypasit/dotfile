@@ -28,7 +28,7 @@ eval "$(starship init zsh)"
 plugins=(
 	zsh-syntax-highlighting
 	git
-	zsh-autosuggestions
+	#zsh-autosuggestions
 	autojump
 )
 
@@ -145,7 +145,7 @@ alias w='feh --bg-fill --randomize ~/wallpapers'
 
 alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null && mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
+alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
 alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
 alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
@@ -201,4 +201,4 @@ coding()
 	fi
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
