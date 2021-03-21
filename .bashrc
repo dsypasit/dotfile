@@ -269,6 +269,16 @@ alias morning='./scripts/morning/morning.sh'
 alias scr='cd ./scripts/'
 alias cls='clear'
 
+alias z="clear;zsh"
+alias vz="nvim ~/.zshrc"
+alias vv="nvim ~/.config/nvim/init.vim"
+alias v='nvim'
+alias vim='nvim'
+alias pac="sudo pacman"
+alias vf="vifm"
+alias ju="jupyter notebook"
+
+
 stenv()
 {
 	op=$1
