@@ -29,7 +29,7 @@ behind = "[⇣](bold green)"
 [username]
 style_user = "#118ab2 bold"
 style_root = "black bold"
-format = "[ ](#7286a0)[ $user]($style) "
+format = "[ ](#e9f0fc)[ $user]($style) "
 disabled = false
 show_always = true
 

@@ -125,6 +125,11 @@ bindkey "^k" autosuggest-accept
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Example aliases
+alias ls='lsd'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
@@ -201,4 +206,4 @@ coding()
 	fi
 }
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
