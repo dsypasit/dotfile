@@ -2,7 +2,7 @@
 
 ```
 sudo apt install -y git zsh
-``
+```
 
 ## set default zsh
 ```
