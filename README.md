@@ -15,6 +15,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ## install i3
 ```
-sudo pacman -S install i3 vifm polybar starship dunst ranger picom 
+sudo pacman -S install i3 vifm polybar starship dunst ranger picom nitrogen
 git clone https://github.com/Dsypasit/dotfile.git
 ```
