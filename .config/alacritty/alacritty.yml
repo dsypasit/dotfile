@@ -37,7 +37,7 @@ font:
   italic:
     family: Fira Code Nerd Font
     style: Italic
-  size: 10
+  size: 8
   offset:
     x: 0
     y: 0

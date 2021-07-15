@@ -12,7 +12,7 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.config/rofi/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export TERMINAL=/usr/bin/alacritty
-export ZSH="/home/dsy/.oh-my-zsh"
+export ZSH="/home/dsypasit/.oh-my-zsh"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 
@@ -28,8 +28,8 @@ eval "$(starship init zsh)"
 plugins=(
 	zsh-syntax-highlighting
 	git
-	#zsh-autosuggestions
-	autojump
+	zsh-autosuggestions
+	#autojump
 )
 
 
@@ -38,6 +38,11 @@ source $ZSH/oh-my-zsh.sh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 bindkey "^k" autosuggest-accept
+
+#for fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -144,7 +149,7 @@ alias rh='cd $PWD;python3 -m http.server --cgi 8080'
 alias cf='fc-list'
 alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="~/my_linux_env/backup"
+alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
 alias w='feh --bg-fill --randomize ~/wallpapers'
 
@@ -207,3 +212,5 @@ coding()
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

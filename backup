@@ -5,19 +5,19 @@ for i in "${config[@]}";do
 	name=${i##*/}
 	if [[ ${i::-1} =~ ".config" ]]; then
 		if [[ -d ${i::-1} ]]; then
-			cp -vr ${i::-1} ~/my_linux_env/.config/
+			cp -vr ${i::-1} $HOME/dotfile/.config/
 		else
-			cp ${i::-1} ~/my_linux_env/.config/${name::-1}
+			cp ${i::-1} $HOME/dotfile/.config/${name::-1}
 		fi
 	else
 		if [[ -d ${i::-1} ]]; then
-			cp -vr ${i::-1} ~/my_linux_env/
+			cp -vr ${i::-1} $HOME/dotfile/
 		else
-			cp ${i::-1} ~/my_linux_env/${name::-1}
+			cp ${i::-1} $HOME/dotfile/${name::-1}
 		fi
 	fi
 done
-cd ~/my_linux_env
+cd $HOME/dotfile
 git add .
 
 echo "Enter the commit message:"

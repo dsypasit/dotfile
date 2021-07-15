@@ -1,0 +1,429 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/dsypasit/
+	..
+1626265079
+'b
+	/home/dsypasit/bin/
+	..
+1626265079
+'h
+	/home/dsypasit/
+	..
+1626265079
+'s
+	/home/dsypasit/.config
+	nautilus
+1626266515
+
+# Bookmarks:
+
+# TUI:
+ar
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/dsypasit/dotfile/.config/polybar/polybar
+	..
+0
+d/home/dsypasit/dotfile
+	..
+0
+d/home/dsypasit
+	dotfile
+10
+d/home/dsypasit/dotfile
+	backup
+2
+d/home/dsypasit
+	alacritty
+9
+d/home/dsypasit/alacritty
+	..
+0
+d/home/dsypasit
+	alacritty
+9
+d/home/dsypasit/alacritty
+	..
+0
+d/home/dsypasit
+	dotfile
+10
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit
+	dotfile
+21
+d/home
+	dsypasit
+1
+d/home/dsypasit
+	dotfile
+20
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit/dotfile/.config
+	alacritty
+1
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit/dotfile/.config
+	dunst
+2
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	.config
+1
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	gtk-3.0
+7
+d/home/dsypasit/.config/gtk-3.0
+	bookmarks
+1
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit/.config/picom
+	picom.conf
+1
+d/home/dsypasit/.config
+	dunst
+3
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	nautilus
+10
+d/home/dsypasit
+	.config
+3
+d/home
+	dsypasit
+1
+d/home/dsypasit
+	.config
+3
+d/home/dsypasit/.config
+	nautilus
+10
+d/home/dsypasit/.config/nautilus
+	..
+0
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit/.config/picom
+	picom.conf
+1
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit/.config/picom
+	..
+0
+d/home/dsypasit/.config
+	picom
+13
+d/home/dsypasit
+	.config
+3
+d/home
+	dsypasit
+1
+d/home/dsypasit
+	dotfile
+21
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit/dotfile/.config
+	picom
+3
+d/home/dsypasit/dotfile/.config/picom
+	picom.conf
+1
+d/home/dsypasit/dotfile/.config
+	picom
+3
+d/home/dsypasit/dotfile/.config/picom
+	picom.conf
+1
+d/home/dsypasit/dotfile/.config
+	polybar
+4
+d/home/dsypasit/dotfile
+	.i3
+3
+d/home/dsypasit/dotfile/.i3
+	config
+1
+d/home/dsypasit/dotfile
+	.i3
+3
+d/home/dsypasit/dotfile/.i3
+	config
+1
+d/home/dsypasit/dotfile
+	.i3
+3
+d/home/dsypasit
+	Downloads
+15
+d/home/dsypasit/Downloads
+	FiraCode.zip
+1
+d/home/dsypasit
+	dotfile
+21
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit/dotfile/.config
+	polybar
+4
+d/home/dsypasit/dotfile/.config/polybar
+	config_example
+3
+d
+
+# Right window history (oldest to newest):
+D/home/dsypasit/dotfile
+	..
+0
+D/home/dsypasit
+	dotfile
+10
+D/home
+	dsypasit
+1
+D/home/dsypasit
+	dotfile
+10
+D/home
+	dsypasit
+1
+D/home/dsypasit
+	.config
+3
+D/home/dsypasit/.config
+	picom
+13
+D/home/dsypasit/.config/picom
+	picom.conf
+1
+D/home/dsypasit
+	dotfile
+9
+D/home/dsypasit/dotfile
+	.i3
+3
+D/home/dsypasit/dotfile/.i3
+	config
+1
+D/home/dsypasit/dotfile
+	.i3
+3
+D/home/dsypasit/dotfile/.i3
+	config
+1
+D/home/dsypasit/.config
+	polybar
+14
+D/home/dsypasit/.config/polybar
+	launch.sh
+3
+D/home/dsypasit/.config
+	i3
+8
+D/home/dsypasit/.config/i3
+	config
+1
+D/home/dsypasit/.config
+	i3
+8
+D/home/dsypasit/.config/i3
+	config
+1
+D/home/dsypasit/.config
+	alacritty
+1
+D/home/dsypasit/.config/alacritty
+	alacritty.yml
+1
+D/home/dsypasit/.config
+	alacritty
+1
+D/home/dsypasit
+	.bashrc
+28
+D/home/dsypasit/.config
+	polybar
+17
+D/home/dsypasit/.config/polybar
+	polybar
+1
+D/home/dsypasit/.config/polybar/polybar
+	..
+0
+D/home/dsypasit/.config/polybar
+	polybar
+1
+D/home/dsypasit/.config/polybar/polybar
+	config
+1
+D/home/dsypasit/.config/polybar
+	polybar
+1
+D/home/dsypasit/.config/polybar/polybar
+	config
+1
+D/home/dsypasit/.config/polybar
+	polybar
+1
+D/home/dsypasit/.config
+	pulse
+18
+D/home/dsypasit/.config/pulse
+	..
+0
+D/home/dsypasit/.config
+	polybar
+17
+D/home/dsypasit/.config/polybar
+	launch.sh
+2
+D/home/dsypasit/.config
+	i3
+9
+D/home/dsypasit/.config/i3
+	config
+1
+D/home/dsypasit/.config
+	polybar
+17
+D/home/dsypasit/.config/polybar
+	launch.sh
+2
+D/home/dsypasit/.config
+	i3
+9
+D/home/dsypasit/.config/i3
+	config
+1
+D/home/dsypasit/.config
+	polybar
+17
+D/home/dsypasit/.config/polybar
+	config
+1
+D/home/dsypasit/.config
+	i3
+9
+D/home/dsypasit/.config/i3
+	config
+1
+D/home/dsypasit/.config
+	ibus
+9
+D/home/dsypasit
+	.i3
+6
+D/home/dsypasit/.i3
+	..
+0
+D/home/dsypasit
+	.i3
+6
+D/home/dsypasit/.config
+	alacritty
+1
+D/home/dsypasit/.config/alacritty
+	alacritty.yml
+1
+D/home/dsypasit/.config
+	alacritty
+1
+D/home/dsypasit
+	.config
+3
+D/home/dsypasit/.config
+	alacritty
+1
+D/home/dsypasit/.config/alacritty
+	alacritty.yml
+1
+D
+
+# Command line history (oldest to newest):
+:wq
+:q
+
+# Search history (oldest to newest):
+/dot
+
+# Prompt history (oldest to newest):
+pconfig_example
+p.i3
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/dsypasit/.local/share/vifm/Trash/000_alacritty
+	/home/dsypasit/alacritty
+t/home/dsypasit/.local/share/vifm/Trash/000_.config
+	/home/dsypasit/.config/.config
+t/home/dsypasit/.local/share/vifm/Trash/000_config
+	/home/dsypasit/.config/i3/config
+t/home/dsypasit/.local/share/vifm/Trash/000_polybar
+	/home/dsypasit/.config/polybar
+t/home/dsypasit/.local/share/vifm/Trash/001_polybar
+	/home/dsypasit/.config/polybar/polybar
+t/home/dsypasit/.local/share/vifm/Trash/000_config_example
+	/home/dsypasit/.config/polybar/config_example
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].0
+]F
+s0
