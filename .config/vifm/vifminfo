@@ -9,14 +9,18 @@
 	/home/dsypasit/bin/
 	..
 1626265079
+'c
+	/home/dsypasit/.config
+	gtk-3.0
+1626497359
 'h
 	/home/dsypasit/
 	..
 1626265079
 's
-	/home/dsypasit/.config
-	nautilus
-1626266515
+	/home/dsypasit/codes
+	git_test
+1626497373
 
 # Bookmarks:
 
@@ -30,6 +34,30 @@ l2
 r2
 
 # Left window history (oldest to newest):
+d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
+	org.eclipse.equinox.launcher
+1
+d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux/org.eclipse.equinox.launcher
+	..
+0
+d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
+	org.eclipse.equinox.launcher
+1
+d/home/dsypasit/.config/coc/extensions/coc-java-data/server/features
+	..
+0
+d/home/dsypasit/.config/coc
+	extensions
+1
+d/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+d/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+d/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	eclipse.jdt.ls
+7
 d/home/dsypasit/dotfile/.config/polybar/polybar
 	..
 0
@@ -216,9 +244,174 @@ d/home/dsypasit/dotfile/.config
 d/home/dsypasit/dotfile/.config/polybar
 	config_example
 3
+d/home/dsypasit/dotfile/.config
+	ranger
+5
+d/home/dsypasit/dotfile
+	.config
+1
+d/home/dsypasit
+	wallpapers
+28
+d/home/dsypasit/wallpapers
+	..
+0
+d/home/dsypasit
+	wallpapers
+28
+d/home/dsypasit/wallpapers
+	84285289_p16.jpg
+9
+d/home/dsypasit/.config
+	gtk-3.0
+12
+d/home/dsypasit
+	codes
+9
+d/home/dsypasit/codes
+	git_test
+1
+d/home/dsypasit/.config
+	gtk-3.0
+12
+d/home/dsypasit/codes
+	git_test
+1
+d/home/dsypasit/.config
+	gtk-3.0
+12
+d/home/dsypasit/codes
+	university_code
+2
+d/home/dsypasit/codes/university_code
+	xo_game
+1
+d/home/dsypasit/codes/university_code/xo_game
+	app.py
+1
+d/home/dsypasit/codes/university_code
+	xo_game
+1
+d/home/dsypasit/codes
+	learn_project
+2
+d/home/dsypasit/codes/learn_project
+	react_0
+1
+d/home/dsypasit/codes/learn_project/react_0
+	tutorial
+2
+d/home/dsypasit/codes/learn_project/react_0/tutorial
+	..
+0
+d/home/dsypasit/.config
+	polybar
+22
+d/home/dsypasit/.config/polybar
+	config
+1
+d/home/dsypasit/codes
+	learn_project
+2
+d/home/dsypasit/codes/learn_project
+	react_0
+1
+d/home/dsypasit/codes/learn_project/react_0
+	tutorial
+2
+d/home/dsypasit/codes/learn_project/react_0/tutorial
+	..
+0
 d
 
 # Right window history (oldest to newest):
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_linux
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
+	1626835619611.log
+17
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_linux
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_linux
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
+	1626835619611.log
+17
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	eclipse.jdt.ls
+7
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_mac
+2
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc
+	extensions
+1
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc
+	extensions
+1
+D/home/dsypasit/.config/coc/extensions
+	node_modules
+2
+D/home/dsypasit/.config/coc/extensions/node_modules
+	..
+0
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_mac
+2
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions
+	coc-java-data
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data
+	server
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server
+	config_linux
+1
+D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
+	..
+0
 D/home/dsypasit/dotfile
 	..
 0
@@ -384,6 +577,54 @@ D/home/dsypasit/.config
 D/home/dsypasit/.config/alacritty
 	alacritty.yml
 1
+D/home/dsypasit/.config
+	ranger
+21
+D/home/dsypasit/.config/ranger
+	rifle.conf
+4
+D/home/dsypasit/.config
+	vifm
+23
+D/home/dsypasit/.config/vifm
+	vifmrc
+10
+D/home/dsypasit
+	codes
+24
+D/home/dsypasit/codes
+	university_code
+2
+D/home/dsypasit/codes/university_code
+	xo_game
+1
+D/home/dsypasit/codes/university_code/xo_game
+	app.py
+1
+D/home/dsypasit/codes
+	university_code
+4
+D/home/dsypasit/codes/university_code
+	java_xo
+1
+D/home/dsypasit/codes/university_code/java_xo
+	app.java
+4
+D/home/dsypasit/codes
+	git_test
+1
+D/home/dsypasit/.config
+	polybar
+25
+D/home/dsypasit/.config/polybar
+	config
+1
+D/home/dsypasit/codes
+	git_test
+1
+D/home/dsypasit/codes/git_test
+	a.py
+2
 D
 
 # Command line history (oldest to newest):
@@ -391,7 +632,11 @@ D
 :q
 
 # Search history (oldest to newest):
+/coc
 /dot
+/wall
+/cod
+/po
 
 # Prompt history (oldest to newest):
 pconfig_example
@@ -400,6 +645,7 @@ p.i3
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/dsypasit/dotfile/.config/ranger
 
 # Directory stack (oldest to newest):
 
@@ -416,11 +662,13 @@ t/home/dsypasit/.local/share/vifm/Trash/001_polybar
 	/home/dsypasit/.config/polybar/polybar
 t/home/dsypasit/.local/share/vifm/Trash/000_config_example
 	/home/dsypasit/.config/polybar/config_example
+t/home/dsypasit/.local/share/vifm/Trash/000_coc-java-data
+	/home/dsypasit/.config/coc/extensions/coc-java-data
 
 # State:
 f
 i1
-[.0
+[.1
 [F
 F
 I1

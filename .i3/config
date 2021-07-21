@@ -90,7 +90,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+v split v; exec notify-send 'Tile Vertically'
 bindsym $mod+b split h; exec notify-send 'Tile Horizontally'
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+Return floating toggle resize set 50 ppt 50 ppt; move position center
+bindsym $mod+Shift+Return floating toggle resize set 50 ppt 60 ppt; move position center
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show;floating disable; 
@@ -129,6 +129,14 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# Move workspace between monitors
+bindsym $mod+Control+m move workspace to output primary
+bindsym $mod+Control+s move workspace to output HDMI-1
+bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+h move workspace to output left
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
@@ -233,27 +241,26 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 	#i3bar_command i3bar
 	#status_command i3blocks
 	#position top
-	#font pango:Noto Serif Thai 15
-      # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	# tray_output primary
-	# tray_output eDP1
+   ##please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+	 ##tray_output primary
+	 ##tray_output eDP1
 
-	#bindsym button4 nop
-	#bindsym button5 nop
+	##bindsym button4 nop
+	##bindsym button5 nop
 	#strip_workspace_numbers yes
 
-    #colors {
-        #background #222D31
-        #statusline #F9FAF9
-        #separator  #454947
+	##colors {
+		##background #222D31
+		##statusline #F9FAF9
+		##separator  #454947
 
-        ##                  border  backgr  text
-        #focused_workspace  #F9FAF9 #16a085 #292F34
-        #active_workspace   #595B5B #353836 #FDF6E3
-        #inactive_workspace #595B5B #222D31 #EEE8D5
-        #binding_mode       #16a085 #2C2C2C #F9FAF9
-        #urgent_workspace   #16a085 #FDF6E3 #E5201D
-    #}
+		###                  border  backgr  text
+		##focused_workspace  #F9FAF9 #16a085 #292F34
+		##active_workspace   #595B5B #353836 #FDF6E3
+		##inactive_workspace #595B5B #222D31 #EEE8D5
+		##binding_mode       #16a085 #2C2C2C #F9FAF9
+		##urgent_workspace   #16a085 #FDF6E3 #E5201D
+	##}
 #}
 
 # hide/unhide i3bar
