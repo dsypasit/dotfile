@@ -331,42 +331,6 @@ D/home/dsypasit/.config/coc/extensions/coc-java-data
 D/home/dsypasit/.config/coc/extensions
 	coc-java-data
 1
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	config_linux
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
-	1626835619611.log
-17
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	config_linux
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	config_linux
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
-	1626835619611.log
-17
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	eclipse.jdt.ls
-7
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	config_mac
-2
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
 D/home/dsypasit/.config/coc
 	extensions
 1
@@ -625,6 +589,42 @@ D/home/dsypasit/codes
 D/home/dsypasit/codes/git_test
 	a.py
 2
+D/home/dsypasit
+	dotfile
+27
+D/home/dsypasit/dotfile
+	.config
+1
+D/home/dsypasit/dotfile/.config
+	dunst
+2
+D/home/dsypasit/dotfile/.config/dunst
+	dunstrc
+2
+D/home/dsypasit/dotfile/.config
+	polybar
+4
+D/home/dsypasit/dotfile/.config/polybar
+	config
+2
+D/home/dsypasit/dotfile/.config
+	starship.toml
+7
+D/home/dsypasit/codes
+	git_test
+1
+D/home/dsypasit/.config
+	alacritty
+4
+D/home/dsypasit/.config/alacritty
+	alacritty.yml
+1
+D/home/dsypasit/.config
+	alacritty
+4
+D/home/dsypasit/.config/alacritty
+	alacritty.yml
+1
 D
 
 # Command line history (oldest to newest):
@@ -633,10 +633,11 @@ D
 
 # Search history (oldest to newest):
 /coc
-/dot
 /wall
 /cod
 /po
+/dot
+/ala
 
 # Prompt history (oldest to newest):
 pconfig_example

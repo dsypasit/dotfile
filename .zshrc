@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 #neofetch
@@ -135,6 +135,7 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+alias aqua="$HOME/dotfile/animetion.sh"
 alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
