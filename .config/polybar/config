@@ -40,6 +40,7 @@ fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+enable-ipc = true
 
 line-size = 3
 ;line-color = #f00
@@ -64,10 +65,10 @@ modules-left = date-time i3
 modules-center = xwindow 
 modules-right = filesystem memory xkeyboard wlan battery date powermenu
 
-;separator = |
+separator = |
 
-;tray-position = left
-;tray-padding = 3
+tray-position = right
+tray-padding = 10
 
 
 ;tray-background = #0063ff
@@ -152,9 +153,9 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = false
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3; 
+ws-icon-0 = 1;BrW
+ws-icon-1 = 2;>_
+ws-icon-2 = 3;[O.o]
 
 label-mode-padding = 5
 label-mode-foreground = #000
@@ -164,11 +165,11 @@ label-mode-background = ${colors.primary}
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 5
+label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
-label-unfocused-padding = 4
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -182,7 +183,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
- ;label-separator = |
+;label-separator = |
 
 [module/mpd]
 type = internal/mpd

@@ -1,0 +1,8 @@
+#!/bin/sh
+# ~/.xinitrc
+
+exec setxkbmap -layout 'us,th'
+exec setxkbmap -option 'grp:lwin_toggle'
+
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+alsactl --file ~/.config/asound.state restore

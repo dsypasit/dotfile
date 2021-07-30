@@ -7,6 +7,10 @@ export TERMINAL='/usr/bin/alacritty';
 export VISUAL=/usr/bin/nvim;
 export EDITOR=/usr/bin/nvim;
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 [[ $- != *i* ]] && return
 
 colors() {

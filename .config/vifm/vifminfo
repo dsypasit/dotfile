@@ -17,6 +17,10 @@
 	/home/dsypasit/
 	..
 1626265079
+'n
+	/home/dsypasit
+	.i3
+1626932531
 's
 	/home/dsypasit/codes
 	git_test
@@ -25,7 +29,7 @@
 # Bookmarks:
 
 # TUI:
-ar
+al
 q0
 v2
 ov
@@ -34,117 +38,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
-	org.eclipse.equinox.launcher
-1
-d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux/org.eclipse.equinox.launcher
-	..
-0
-d/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
-	org.eclipse.equinox.launcher
-1
-d/home/dsypasit/.config/coc/extensions/coc-java-data/server/features
-	..
-0
-d/home/dsypasit/.config/coc
-	extensions
-1
-d/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
-d/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-d/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	eclipse.jdt.ls
-7
-d/home/dsypasit/dotfile/.config/polybar/polybar
-	..
-0
-d/home/dsypasit/dotfile
-	..
-0
-d/home/dsypasit
-	dotfile
-10
-d/home/dsypasit/dotfile
-	backup
-2
-d/home/dsypasit
-	alacritty
-9
-d/home/dsypasit/alacritty
-	..
-0
-d/home/dsypasit
-	alacritty
-9
-d/home/dsypasit/alacritty
-	..
-0
-d/home/dsypasit
-	dotfile
-10
-d/home/dsypasit/dotfile
-	.config
-1
-d/home/dsypasit
-	dotfile
-21
-d/home
-	dsypasit
-1
-d/home/dsypasit
-	dotfile
-20
-d/home/dsypasit/dotfile
-	.config
-1
-d/home/dsypasit/dotfile/.config
-	alacritty
-1
-d/home/dsypasit/dotfile
-	.config
-1
-d/home/dsypasit/dotfile/.config
-	dunst
-2
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	.config
-1
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	gtk-3.0
-7
-d/home/dsypasit/.config/gtk-3.0
-	bookmarks
-1
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit/.config/picom
-	picom.conf
-1
 d/home/dsypasit/.config
 	dunst
 3
@@ -322,21 +215,132 @@ d/home/dsypasit/codes/learn_project/react_0
 d/home/dsypasit/codes/learn_project/react_0/tutorial
 	..
 0
+d/home/dsypasit/codes
+	university_code
+4
+d/home/dsypasit/codes/university_code
+	xo_game
+2
+d/home/dsypasit/codes
+	learn_project
+2
+d/home/dsypasit/codes/learn_project
+	react_0
+1
+d/home/dsypasit/codes/learn_project/react_0
+	tutorial
+2
+d/home/dsypasit/codes/learn_project/react_0/tutorial
+	..
+0
+d/home/dsypasit/codes
+	test
+4
+d/home/dsypasit/codes/test
+	about
+1
+d/home/dsypasit/codes
+	university_code
+5
+d/home/dsypasit/codes/university_code
+	java_xo
+1
+d/home/dsypasit/codes/university_code/java_xo
+	app.class
+1
+d/home/dsypasit/codes/university_code
+	xo_game
+3
+d/home/dsypasit/codes/university_code/xo_game
+	app.py
+1
+d/home/dsypasit/codes/university_code
+	java_xo
+1
+d/home/dsypasit/codes/university_code/java_xo
+	app.class
+1
+d/home/dsypasit/codes/university_code
+	swingExam
+2
+d/home/dsypasit/codes/university_code/swingExam
+	Simple.class
+4
+d/home/dsypasit/.config
+	picom
+27
+d/home/dsypasit/.config/picom
+	picom.conf
+1
+d/home/dsypasit/codes
+	ai_hackaton
+1
+d/home/dsypasit/codes/ai_hackaton
+	ai-hackathon-online-2021-qa.zip
+5
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+2
+d/home/dsypasit/codes/university_code/java_xo_gui
+	..
+0
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+2
+d/home/dsypasit/codes/university_code/java_xo_gui
+	test.java
+2
+d/home/dsypasit
+	codes
+9
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+3
+d/home/dsypasit/codes/university_code/java_xo_gui
+	test.java
+4
+d/home/dsypasit/codes/university_code
+	java_class_xo
+1
+d/home/dsypasit/codes/university_code/java_class_xo
+	App.java
+2
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+3
+d/home/dsypasit/codes/university_code/java_xo_gui
+	App.java
+3
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+3
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit
+	codes
+9
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit/codes/university_code
+	java_xo_gui
+3
+d/home/dsypasit/codes/university_code/java_xo_gui
+	App.java
+3
 d
 
 # Right window history (oldest to newest):
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
-D/home/dsypasit/.config/coc
-	extensions
-1
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
 D/home/dsypasit/.config/coc/extensions/coc-java-data
 	server
 1
@@ -625,6 +629,18 @@ D/home/dsypasit/.config
 D/home/dsypasit/.config/alacritty
 	alacritty.yml
 1
+D/home/dsypasit/.config
+	nvim
+22
+D/home/dsypasit/.config/nvim
+	.gitignore
+2
+D/home/dsypasit/.config
+	gtk-3.0
+16
+D/home/dsypasit
+	.config
+3
 D
 
 # Command line history (oldest to newest):
@@ -632,12 +648,16 @@ D
 :q
 
 # Search history (oldest to newest):
+/i3
 /coc
 /wall
 /cod
 /po
 /dot
 /ala
+/nvi
+/test
+/com
 
 # Prompt history (oldest to newest):
 pconfig_example
@@ -646,7 +666,8 @@ p.i3
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/dsypasit/dotfile/.config/ranger
+""/home/dsypasit/.local/share/vifm/Trash/000_test.class
+""/home/dsypasit/.local/share/vifm/Trash/000_test.java
 
 # Directory stack (oldest to newest):
 
@@ -665,6 +686,10 @@ t/home/dsypasit/.local/share/vifm/Trash/000_config_example
 	/home/dsypasit/.config/polybar/config_example
 t/home/dsypasit/.local/share/vifm/Trash/000_coc-java-data
 	/home/dsypasit/.config/coc/extensions/coc-java-data
+t/home/dsypasit/.local/share/vifm/Trash/000_test.class
+	/home/dsypasit/codes/university_code/java_xo_gui/test.class
+t/home/dsypasit/.local/share/vifm/Trash/000_test.java
+	/home/dsypasit/codes/university_code/java_xo_gui/test.java
 
 # State:
 f

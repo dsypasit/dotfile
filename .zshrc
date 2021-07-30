@@ -135,6 +135,10 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+alias rng='ranger'
+
+alias Jc='$HOME/dotfile/Jc.sh'
+
 alias aqua="$HOME/dotfile/animetion.sh"
 alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
