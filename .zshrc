@@ -32,6 +32,7 @@ plugins=(
 	#autojump
 )
 
+source $HOME/dotfile/alias
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,41 +131,41 @@ source /usr/share/doc/fzf/examples/completion.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Example aliases
-alias ls='lsd'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+#alias ls='lsd'
+#alias la='ls -a'
+#alias lla='ls -la'
+#alias lt='ls --tree'
 
-alias rng='ranger'
+#alias rng='ranger'
 
-alias Jc='$HOME/dotfile/Jc.sh'
+#alias Jc='$HOME/dotfile/Jc.sh'
 
-alias aqua="$HOME/dotfile/animetion.sh"
-alias z="clear;zsh"
-alias vz="nvim ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias v='nvim'
-alias vim='nvim'
-alias pac="sudo pacman"
-alias vf="vifm"
-alias ju="jupyter notebook"
+#alias aqua="$HOME/dotfile/animetion.sh"
+#alias z="clear;zsh"
+#alias vz="nvim ~/.zshrc"
+#alias vv="nvim ~/.config/nvim/init.vim"
+#alias v='nvim'
+#alias vim='nvim'
+#alias pac="sudo pacman"
+#alias vf="vifm"
+#alias ju="jupyter notebook"
 
-alias cl='clear'
-alias rh='cd $PWD;python3 -m http.server --cgi 8080'
-alias cf='fc-list'
-alias ct="source ~/my_linux_env/bash_script/timeout.sh"
-alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="~/dotfile/backup"
-alias vb="~/scripts/nvim_backup"
-alias w='feh --bg-fill --randomize ~/wallpapers'
+#alias cl='clear'
+#alias rh='cd $PWD;python3 -m http.server --cgi 8080'
+#alias cf='fc-list'
+#alias ct="source ~/my_linux_env/bash_script/timeout.sh"
+#alias fp="fzf --preview 'bat --color "always" {}'"
+#alias mb="~/dotfile/backup"
+#alias vb="~/scripts/nvim_backup"
+#alias w='feh --bg-fill --randomize ~/wallpapers'
 
-alias weather='clear && curl wttr.in'
-alias fetch='clear && neofetch'
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
+#alias weather='clear && curl wttr.in'
+#alias fetch='clear && neofetch'
+#alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
-alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
-alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
-alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
+#alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
+#alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
+#alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
 
 fk(){du -a ~/coding | awk '{print $2}' | fzf | xargs -o nvim}
 html(){touch index.html script.js style.css}

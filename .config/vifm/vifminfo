@@ -38,15 +38,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/dsypasit/.config
-	dunst
-3
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	nautilus
-10
 d/home/dsypasit
 	.config
 3
@@ -338,6 +329,15 @@ d/home/dsypasit/codes/university_code
 d/home/dsypasit/codes/university_code/java_xo_gui
 	App.java
 3
+d/home/dsypasit/codes
+	university_code
+6
+d/home/dsypasit/codes/university_code
+	java_class_xo
+1
+d/home/dsypasit/codes/university_code/java_class_xo
+	App.java
+2
 d
 
 # Right window history (oldest to newest):
