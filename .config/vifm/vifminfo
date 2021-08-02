@@ -29,7 +29,7 @@
 # Bookmarks:
 
 # TUI:
-al
+ar
 q0
 v2
 ov
@@ -38,39 +38,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/dsypasit
-	.config
-3
-d/home
-	dsypasit
-1
-d/home/dsypasit
-	.config
-3
-d/home/dsypasit/.config
-	nautilus
-10
-d/home/dsypasit/.config/nautilus
-	..
-0
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit/.config/picom
-	picom.conf
-1
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit/.config/picom
-	..
-0
-d/home/dsypasit/.config
-	picom
-13
-d/home/dsypasit
-	.config
-3
 d/home
 	dsypasit
 1
@@ -338,21 +305,42 @@ d/home/dsypasit/codes/university_code
 d/home/dsypasit/codes/university_code/java_class_xo
 	App.java
 2
+d/home/dsypasit/codes/university_code
+	java_class_xo
+1
+d/home/dsypasit
+	codes
+9
+d/home/dsypasit/codes
+	project
+5
+d/home/dsypasit/codes/project
+	no_copy_right_anime
+1
+d/home/dsypasit/codes/project/no_copy_right_anime
+	..
+0
+d/home/dsypasit/codes/project
+	no_copy_right_anime
+1
+d/home/dsypasit/codes
+	test
+6
+d/home/dsypasit/codes/test
+	about
+1
+d/home/dsypasit/codes
+	learn_project
+3
+d/home/dsypasit/codes/learn_project
+	..
+0
+d/home/dsypasit/codes
+	learn_project
+3
 d
 
 # Right window history (oldest to newest):
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
-D/home/dsypasit/.config/coc
-	extensions
-1
-D/home/dsypasit/.config/coc/extensions
-	node_modules
-2
 D/home/dsypasit/.config/coc/extensions/node_modules
 	..
 0
@@ -639,8 +627,20 @@ D/home/dsypasit/.config
 	gtk-3.0
 16
 D/home/dsypasit
-	.config
+	.i3
+8
+D/home/dsypasit/.i3
+	i3log
+2
+D/home/dsypasit
+	.i3
+8
+D/home/dsypasit/.i3
+	xinitrc
 3
+D/home/dsypasit
+	.sudo_as_admin_successful
+23
 D
 
 # Command line history (oldest to newest):
@@ -658,6 +658,7 @@ D
 /nvi
 /test
 /com
+/.xin
 
 # Prompt history (oldest to newest):
 pconfig_example

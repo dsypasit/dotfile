@@ -1,6 +1,12 @@
-#!/usr/bin/bash
-
+#!/bin/bash
 # add crontab
 # * * * * * ~/dotfile/script/study
 
-export DISPLAY=:0 && XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send -t 100000 -u critical Study "<span font='30px'><b>Study time!!!!!!!!</b> </span>"
+action=$(export DISPLAY=:1 && XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/dunstify -t 100000 -u critical Study "<span font='30px'><b>Study time!!!!!!!!</b> </span>" --action="Excel,excel");
+
+case "$action" in
+	"Excel")
+		export DISPLAY=:1 && /usr/bin/firefox https://docs.google.com/spreadsheets/d/16nRw6Nsjtgj0L5hSTIcq8RUNqQaq77igYpe2LKxbklI/edit?usp=sharing
+		/usr/bin/notify-send Success
+		;;
+esac
