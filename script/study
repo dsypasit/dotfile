@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# add crontab
+# * * * * * ~/dotfile/script/study
+
+export DISPLAY=:0 && XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send -t 100000 -u critical Study "<span font='30px'><b>Study time!!!!!!!!</b> </span>"
