@@ -1,5 +1,5 @@
 #!/bin/bash
-config=(~/.config/starship.toml, ~/.bashrc, ~/.zshrc, ~/.config/ranger, ~/.config/alacritty, ~/.config/dunst, ~/.config/vifm, ~/.config/picom, ~/.config/polybar, ~/.i3, ~/.tmux.conf, ~/.tmux.reset.conf,)
+config=(~/.config/starship.toml, ~/.bashrc, ~/.zshrc, ~/.config/ranger, ~/.config/alacritty, ~/.config/dunst, ~/.config/vifm, ~/.config/picom, ~/.config/polybar, ~/.i3, ~/.tmux.conf, ~/.tmux.reset.conf, ~/.config/sxiv, )
 
 for i in "${config[@]}";do
 	name=${i##*/}

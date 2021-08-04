@@ -1,4 +1,4 @@
-
+#!/bin/bash
 alias ls='lsd'
 alias ls='lsd'
 alias ls='lsd'
@@ -96,6 +96,7 @@ alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
 alias w='feh --bg-fill --randomize ~/wallpapers'
+alias wa="sxiv -ft ~/wallpapers"
 
 alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'

@@ -60,6 +60,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id imwheel
 exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
+exec_always --no-startup-id dunst
 
 
 #picom

@@ -38,54 +38,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home
-	dsypasit
-1
-d/home/dsypasit
-	dotfile
-21
-d/home/dsypasit/dotfile
-	.config
-1
-d/home/dsypasit/dotfile/.config
-	picom
-3
-d/home/dsypasit/dotfile/.config/picom
-	picom.conf
-1
-d/home/dsypasit/dotfile/.config
-	picom
-3
-d/home/dsypasit/dotfile/.config/picom
-	picom.conf
-1
-d/home/dsypasit/dotfile/.config
-	polybar
-4
-d/home/dsypasit/dotfile
-	.i3
-3
-d/home/dsypasit/dotfile/.i3
-	config
-1
-d/home/dsypasit/dotfile
-	.i3
-3
-d/home/dsypasit/dotfile/.i3
-	config
-1
-d/home/dsypasit/dotfile
-	.i3
-3
-d/home/dsypasit
-	Downloads
-15
-d/home/dsypasit/Downloads
-	FiraCode.zip
-1
-d/home/dsypasit
-	dotfile
-21
 d/home/dsypasit/dotfile
 	.config
 1
@@ -336,20 +288,59 @@ d/home/dsypasit/codes/learn_project
 	..
 0
 d/home/dsypasit/codes
+	note
+4
+d/home/dsypasit/codes/note
+	..
+0
+d/home/dsypasit/codes
+	university_code
+7
+d/home/dsypasit/codes/university_code
+	java_xo
+2
+d/home/dsypasit/codes
+	test
+6
+d/home/dsypasit/codes/test
+	about
+1
+d/home/dsypasit/codes
+	ai_hackaton
+1
+d/home/dsypasit/codes/ai_hackaton
+	ai-hackathon-online-2021-qa.zip
+5
+d/home/dsypasit/codes
+	note
+4
+d/home/dsypasit/codes/note
+	..
+0
+d/home/dsypasit/codes
 	learn_project
 3
+d/home/dsypasit
+	note
+11
+d/home/dsypasit/note
+	test.txt
+2
+d/home/dsypasit/codes
+	university_code
+7
+d/home/dsypasit/codes/university_code
+	xo_game
+5
+d/home/dsypasit/codes
+	git_test
+2
+d/home/dsypasit/.config
+	gtk-3.0
+18
 d
 
 # Right window history (oldest to newest):
-D/home/dsypasit/.config/coc/extensions/node_modules
-	..
-0
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
 D/home/dsypasit/.config/coc/extensions/coc-java-data/server
 	config_mac
 2
@@ -639,15 +630,29 @@ D/home/dsypasit/.i3
 	xinitrc
 3
 D/home/dsypasit
-	.sudo_as_admin_successful
-23
+	.config
+3
+D/home/dsypasit/.config
+	sxiv
+31
+D/home/dsypasit/.config/sxiv
+	exec
+1
+D/home/dsypasit/.config/sxiv/exec
+	key-handler
+1
 D
 
 # Command line history (oldest to newest):
 :wq
 :q
+:mkdir sxiv
+:mkdir exec
 
 # Search history (oldest to newest):
+/sxiv
+/wal
+/w
 /i3
 /coc
 /wall
@@ -659,6 +664,7 @@ D
 /test
 /com
 /.xin
+/config
 
 # Prompt history (oldest to newest):
 pconfig_example
