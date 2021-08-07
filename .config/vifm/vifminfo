@@ -342,18 +342,6 @@ d
 
 # Right window history (oldest to newest):
 D/home/dsypasit/.config/coc/extensions/coc-java-data/server
-	config_mac
-2
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions
-	coc-java-data
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data
-	server
-1
-D/home/dsypasit/.config/coc/extensions/coc-java-data/server
 	config_linux
 1
 D/home/dsypasit/.config/coc/extensions/coc-java-data/server/config_linux
@@ -640,7 +628,19 @@ D/home/dsypasit/.config/sxiv
 1
 D/home/dsypasit/.config/sxiv/exec
 	key-handler
-1
+2
+D/home/dsypasit/codes
+	git_test
+3
+D/home/dsypasit/.config
+	dunst
+8
+D/home/dsypasit/.config/dunst
+	dunstrc
+2
+D/home/dsypasit/codes
+	university_code
+8
 D
 
 # Command line history (oldest to newest):
@@ -665,6 +665,7 @@ D
 /com
 /.xin
 /config
+/dun
 
 # Prompt history (oldest to newest):
 pconfig_example

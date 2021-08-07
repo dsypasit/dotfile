@@ -30,9 +30,11 @@ bindsym $mod+d layout toggle split
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+n exec alacritty; exec alacritty;
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+f exec alacritty -e ranger
-bindsym $mod+n workspace 5;  exec nitrogen
+#bindsym $mod+n workspace 5;  exec nitrogen
+bindsym $mod+n exec sxiv -t ~/wallpapers
 bindsym $mod+Shift+d workspace 3;  exec discord --no-sandbox
 
 bindsym $mod+space --release exec "rofi -combi-modi drun,window,ssh -show combi -modi combi"
@@ -48,7 +50,8 @@ bindsym Print exec flameshot full -c -p $HOME/Pictures
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends
-exec --no-startup-id nitrogen --restore; sleep 1
+#exec --no-startup-id nitrogen --restore; sleep 1
+exec --no-startup-id feh --bg-scale "$HOME/.config/wall.png"
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
@@ -62,6 +65,7 @@ exec_always --no-startup-id imwheel
 exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
 exec_always --no-startup-id dunst
 
+bindsym Ctrl+space exec killall dunst && dunst
 
 #picom
 bindsym $mod+Shift+p exec "picom --experimental-backends || killall picom"
@@ -93,8 +97,8 @@ bindsym $mod+Shift+l move right
 bindsym $mod+v split v; exec notify-send 'Tile Vertically'
 bindsym $mod+b split h; exec notify-send 'Tile Horizontally'
 bindsym $mod+f fullscreen toggle
-#bindsym $mod+Shift+Return floating toggle resize set 50 ppt 60 ppt; move position center
-bindsym $mod+Shift+Return floating toggle
+bindsym $mod+Shift+Return floating toggle resize set 50 ppt 65 ppt; move position center
+#bindsym $mod+Shift+Return floating toggle
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show;floating disable; 

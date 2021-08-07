@@ -1,4 +1,5 @@
 #!/bin/bash
+export SCRIPT="~/dotfile/script"
 alias ls='lsd'
 alias ls='lsd'
 alias ls='lsd'
@@ -8,7 +9,7 @@ alias lt='ls --tree'
 
 alias rng='ranger'
 
-alias Jc='$HOME/dotfile/Jc.sh'
+alias Jc='$HOME/dotfile/script/Jc.sh'
 
 alias aqua="$HOME/dotfile/animetion.sh"
 alias z="clear;zsh"
@@ -42,8 +43,6 @@ alias lt='ls --tree'
 
 alias rng='ranger'
 
-alias Jc='$HOME/dotfile/Jc.sh'
-
 alias aqua="$HOME/dotfile/animetion.sh"
 alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
@@ -75,8 +74,6 @@ alias lla='ls -la'
 alias lt='ls --tree'
 
 alias rng='ranger'
-
-alias Jc='$HOME/dotfile/Jc.sh'
 
 alias aqua="$HOME/dotfile/animetion.sh"
 alias z="clear;zsh"
@@ -105,3 +102,9 @@ alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg
 alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
 alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
 alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
+alias st="$HOME/dotfile/script/show-tmux"
+alias covid="$HOME/dotfile/script/covid"
+alias alert="$SCRIPT/alert"
+
+alias kd="killall Discord"
+alias gis="git status"

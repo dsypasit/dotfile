@@ -25,7 +25,7 @@ rotate() {
 while read file
 do
 	case "$1" in
-		"w") 
+		"C-x") 
 			cp "$file" ~/.config/wall.png &&
 			feh --bg-scale "$HOME/.config/wall.png" &&
 			notify-send -i "$HOME/.config/wall.png" "Wallpaper change!" ;;
@@ -36,13 +36,6 @@ do
 			readlink -f "$file" | tr -d '\n' | xclip -selection clipboard &&
 			notify-send "$(readlink -f "$file") copied to clipboard" & ;;
 		"d") [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
-		"C-x")      xclip -in -filter | tr '\n' ' ' | xclip -in -selection clipboard ;;
 		"C-c")      while read file; do xclip -selection clipboard -target image/png "$file"; done ;;
-		"C-e")      while read file; do urxvt -bg "#444" -fg "#eee" -sl 0 -title "$file" -e sh -c "exiv2 pr -q -pa '$file' | less" & done ;;
-		"C-g")      tr '\n' '\0' | xargs -0 gimp & ;;
-		"C-r")      while read file; do rawtherapee "$file" & done ;;
-		"C-comma")  rotate 270 ;;
-		"C-period") rotate  90 ;;
-		"C-slash")  rotate 180 ;;
 	esac
 done

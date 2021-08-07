@@ -132,6 +132,9 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 # Example aliases
 
+alias chmodx="chmod +x"
+alias un="cd ~/codes/university_code/"
+
 fk(){du -a ~/coding | awk '{print $2}' | fzf | xargs -o nvim}
 html(){touch index.html script.js style.css}
 

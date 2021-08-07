@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tmux send-keys 'unimatrix -c magenta -s 90' C-m \; \
+	split-window -v \; \
+	clock-mode \; \
+	split-window -h \; \
+	send-keys 'aqua' C-m \;

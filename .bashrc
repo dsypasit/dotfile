@@ -1,11 +1,7 @@
 #
 # ~/.bashrc
 #
-
-
-
-export TERM='/usr/bin/alacritty';
-export TERMINAL='/usr/bin/alacritty';
+export TERMINAL=/usr/bin/alacritty;
 export VISUAL=/usr/bin/nvim;
 export EDITOR=/usr/bin/nvim;
 
@@ -407,4 +403,5 @@ __ps1() {
 
 PROMPT_COMMAND="__ps1"
 
-
+source /home/dsypasit/alacritty/extra/completions/alacritty.bash
+source ~/.bash_completion/alacritty
