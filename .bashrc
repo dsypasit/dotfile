@@ -266,7 +266,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/flutter/flutter/bin:$PATH"
 alias morning='./scripts/morning/morning.sh'
 alias scr='cd ./scripts/'
 alias cls='clear'
@@ -405,3 +405,6 @@ PROMPT_COMMAND="__ps1"
 
 source /home/dsypasit/alacritty/extra/completions/alacritty.bash
 source ~/.bash_completion/alacritty
+
+export JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
+export PATH="$JAVA_HOME:$PATH"

@@ -97,8 +97,8 @@ bindsym $mod+Shift+l move right
 bindsym $mod+v split v; exec notify-send 'Tile Vertically'
 bindsym $mod+b split h; exec notify-send 'Tile Horizontally'
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+Return floating toggle resize set 50 ppt 65 ppt; move position center
-#bindsym $mod+Shift+Return floating toggle
+#bindsym $mod+Shift+Return floating toggle resize set 50 ppt 65 ppt; move position center
+bindsym $mod+Shift+Return floating toggle
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show;floating disable; 
@@ -165,8 +165,9 @@ for_window [class="Chromium"] floating disable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="calamares"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
+for_window [title="^Android Emulator.*"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [title="LINE"] floating enable resize set 30 ppt 50 ppt
+#for_window [title="LINE"] floating enable resize set 30 ppt 50 ppt
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

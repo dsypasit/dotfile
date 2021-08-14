@@ -105,6 +105,7 @@ alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_pr
 alias st="$HOME/dotfile/script/show-tmux"
 alias covid="$HOME/dotfile/script/covid"
 alias alert="$SCRIPT/alert"
+alias runpro="$SCRIPT/runpro"
 
 alias kd="killall Discord"
 alias gis="git status"

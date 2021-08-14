@@ -4,6 +4,11 @@
 [pager]
 	branch = false
 
+[includeIf "gitdir:~/sketchbook/"]
+	[user]
+		email = s6301012620065@kmutnb.ac.th
+		name = PasitSri
+
 [includeIf "gitdir:~/codes/university_code/"]
 	path = .gitconfig-student
 

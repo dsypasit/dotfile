@@ -134,6 +134,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 alias chmodx="chmod +x"
 alias un="cd ~/codes/university_code/"
+alias processing="$HOME/Downloads/processing-3.5.4/processing"
 
 fk(){du -a ~/coding | awk '{print $2}' | fzf | xargs -o nvim}
 html(){touch index.html script.js style.css}
@@ -187,4 +188,5 @@ coding()
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
+export PATH="$JAVA_HOME:$HOME/cmus/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/flutter/flutter/bin:$PATH"
