@@ -29,8 +29,7 @@ bindsym $mod+d layout toggle split
 # Enable touchpad natural scrolling
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+n exec alacritty; exec alacritty;
+bindsym $mod+Return exec gnome-terminal --hide-menubar
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+f exec alacritty -e ranger
 #bindsym $mod+n workspace 5;  exec nitrogen

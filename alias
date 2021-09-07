@@ -109,3 +109,4 @@ alias runpro="$SCRIPT/runpro"
 
 alias kd="killall Discord"
 alias gis="git status"
+alias xml="~/dotfile/script/xml"
