@@ -2,4 +2,3 @@
 rm -rf /tmp/processing
 mkdir /tmp/processing
 /home/dsypasit/Downloads/processing-3.5.4/processing-java --output=/tmp/processing/ --force --sketch=$(pwd) --run 
-#echo $(pwd)
