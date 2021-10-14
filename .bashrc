@@ -1,162 +1,14 @@
-#
-# ~/.bashrc
-#
-export TERMINAL=/usr/bin/alacritty;
-export VISUAL=/usr/bin/nvim;
-export EDITOR=/usr/bin/nvim;
-
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
-[[ $- != *i* ]] && return
-
-colors() {
-	local fgc bgc vals seq0
-
-	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
-	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
-	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
-
-	# foreground colors
-	for fgc in {30..37}; do
-		# background colors
-		for bgc in {40..47}; do
-			fgc=${fgc#37} # white
-			bgc=${bgc#40} # black
-
-			vals="${fgc:+$fgc;}${bgc}"
-			vals=${vals%%;}
-
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
-			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
-		done
-		echo; echo
-	done
-}
-
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-
-# Change the window title of X terminals
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
-
-use_color=true
-
-# Set colorful PS1 only on colorful terminals.
-# dircolors --print-database uses its own built-in database
-# instead of using /etc/DIR_COLORS.  Try to use the external file
-# first to take advantage of user additions.  Use internal bash
-# globbing instead of external grep binary.
-safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
-match_lhs=""
-[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
-[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
-[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
-
-if ${use_color} ; then
-	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
-			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
-			eval $(dircolors -b /etc/DIR_COLORS)
-		fi
-	fi
-
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
-	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
-	fi
-
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
-else
-	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
-	else
-		PS1='\u@\h \w \$ '
-	fi
-fi
-
-unset use_color safe_term match_lhs sh
-
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
-xhost +local:root > /dev/null 2>&1
-
-complete -cf sudo
-
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
-
-shopt -s expand_aliases
-
-# export QT_SELECT=4
-
-# Enable history appending instead of overwriting.  #139609
-shopt -s histappend
-
-#
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+
+source ~/dotfile/alias
 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-
-neofetch
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -194,6 +46,9 @@ esac
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -207,11 +62,13 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1='\[\033[1;34m\]\w\n\[\e[33m\]$(parse_git_branch)`if [[ $? -gt 0 ]]; then printf "\[\033[1;31m\]>"; else printf "\[\033[1;32m\]>"; fi` \[\033[0;37m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
 unset color_prompt force_color_prompt
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -265,146 +122,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/flutter/flutter/bin:$PATH"
-alias morning='./scripts/morning/morning.sh'
-alias scr='cd ./scripts/'
-alias cls='clear'
-
-alias z="clear;zsh"
-alias vz="nvim ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias v='nvim'
-alias vim='nvim'
-alias pac="sudo pacman"
-alias vf="vifm"
-alias ju="jupyter notebook"
-
-
-stenv()
-{
-	op=$1
-	name="env"
-	if [[ $op == 'mk' ]]; then
-		if [[ -n $2  ]]; then name=$2;fi
-		python3 -m venv $name
-		echo "create $name enveroment success! "
-	else
-		if [[ -n $op  ]]; then name=$op;fi
-		source $name/bin/activate 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo 'Activate Success!!'
-		else
-			echo "Error: ${name} is not env name" 
-		fi
-	fi
-}
-
-coding()
-{
-	if [[ $1 == 'md' ]]; then
-		find ~/Coding/$2 2>/dev/null
-		if [[ $? -ne 1 ]]; then
-			echo "Error : can't create folder $2. Please try again."
-		else
-			mkdir ~/Coding/$2
-			cd ~/Coding/$2
-		fi
-	else
-		if [[ $1 == 'p' ]]; then
-			cd ~/Coding/play_ground
-		else
-			cd ~/Coding/$1
-		echo $PWD
-		fi
-	fi
-}
-. /usr/share/autojump/autojump.sh
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# --------------------------- smart prompt ---------------------------
-
-PROMPT_LONG=50
-PROMPT_MAX=95
-
-__ps1() {
-  local P='$'
-
-  if test -n "${ZSH_VERSION}"; then
-    local r='%F{red}'
-    local g='%F{black}'
-    local h='%F{blue}'
-    local u='%F{yellow}'
-    local p='%F{yellow}'
-    local w='%F{magenta}'
-    local b='%F{cyan}'
-    local x='%f'
-  else
-    local r='\[\e[31m\]'
-    local g='\[\e[30m\]'
-    local h='\[\e[34m\]'
-    local u='\[\e[33m\]'
-    local p='\[\e[33m\]'
-    local w='\[\e[35m\]'
-    local b='\[\e[36m\]'
-    local x='\[\e[0m\]'
-  fi
-
-  if test "${EUID}" == 0; then
-    P='#'
-    if test -n "${ZSH_VERSION}"; then
-      u='$F{red}'
-    else
-      u=$r
-    fi
-    p=$u
-  fi
-
-  local dir;
-  if test "$PWD" = "$HOME"; then
-    dir='~'
-  else
-    dir="${PWD##*/}"
-    if test "${dir}" = _; then
-      dir=${PWD#*${PWD%/*/_}}
-      dir=${dir#/}
-    elif test "${dir}" = work; then
-      dir=${PWD#*${PWD%/*/work}}
-      dir=${dir#/}
-    fi
-  fi
-
-  local B=$(git branch --show-current 2>/dev/null)
-  test "$dir" = "$B" && B='.'
-  local countme="$USER@$(hostname):$dir($B)\$ "
-
-  test "$B" = master -o "$B" = main && b=$r
-  test -n "$B" && B="$g($b$B$g)"
-
-  if test -n "${ZSH_VERSION}"; then
-    local short="$u%n$g@$h%m$g:$w$dir$B$p$P$x "
-    local long="$g╔ $u%n$g@%m\h$g:$w$dir$B\n$g╚ $p$P$x "
-    local double="$g╔ $u%n$g@%m\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
-  else
-    local short="$u\u$g@$h\h$g:$w$dir$B$p$P$x "
-    local long="$g╔ $u\u$g@$h\h$g:$w$dir$B\n$g╚ $p$P$x "
-    local double="$g╔ $u\u$g@$h\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
-  fi
-
-  if test ${#countme} -gt "${PROMPT_MAX}"; then
-    PS1="$double"
-  elif test ${#countme} -gt "${PROMPT_LONG}"; then
-    PS1="$long"
-  else
-    PS1="$short"
-  fi
-}
-
-PROMPT_COMMAND="__ps1"
-
-source /home/dsypasit/alacritty/extra/completions/alacritty.bash
-source ~/.bash_completion/alacritty
-
-export JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
-export PATH="$JAVA_HOME:$PATH"

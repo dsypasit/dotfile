@@ -1,20 +1,13 @@
-[user]
-	email = ong.pasit@gmail.com
-	name = dsypasit
-[pager]
-	branch = false
+[cor]
+	editor = nvim
 
-[includeIf "gitdir:~/sketchbook/"]
+[user]
+	name = dsypasit
+	email = ong.pasit@gmail.com
+
+[includeIf "gitdir: ~/sketchbook"]
 	[user]
 		email = s6301012620065@kmutnb.ac.th
 		name = Pasit Sri-intarasut
 
-[includeIf "gitdir:~/codes/university_code/"]
-	path = .gitconfig-student
 
-[alias]
-	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-	co = checkout
-	cb = checkout -b
-	bd = branch -d
-	b = branch
