@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+test -d /home/dsypasit || mkdir /home/dsypasit
+groupadd -g 1000 dsypasit 2>/dev/null
+useradd -s /bin/bash -d /home/dsypasit -u 1000 -g 1000 dsypasit 2>/dev/null
+echo "dsypasit ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+chown -R dsypasit:dsypasit /home/dsypasit
+
+exec su - dsypasit
+
