@@ -1,4 +1,5 @@
 #!/bin/bash
+export PATH=$PATH:~/dotfile/script/
 export SCRIPT="~/dotfile/script"
 alias ls='lsd'
 alias ls='lsd'
@@ -111,3 +112,4 @@ alias runpro="$SCRIPT/runpro"
 alias kd="killall Discord"
 alias gis="git status"
 alias xml="~/dotfile/script/xml"
+
