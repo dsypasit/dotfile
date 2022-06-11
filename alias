@@ -1,6 +1,6 @@
 #!/bin/bash
 export PATH=$PATH:~/dotfile/script/
-export SCRIPT="~/dotfile/script"
+alias scr="cd ~/dotfile/script"
 alias ls='lsd'
 alias ls='lsd'
 alias ls='lsd'

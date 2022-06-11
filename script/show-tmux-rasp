@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tmux send-keys 'htop' C-m \; \
+	splitw -hl 30 \; \
+	clock-mode \; \
+	splitw -v \; \
+	send-keys 'temp' C-m \;

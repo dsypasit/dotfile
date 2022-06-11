@@ -1,16 +1,21 @@
 #/usr/bin/bash
 
-while getopts e:f:p: flag
+while getopts e:f:p:c: flag
 do
     case "${flag}" in
         e) email=${OPTARG};;
         f) file=${OPTARG};;
         p) password=${OPTARG};;
+		c) create=${OPTARG};;
     esac
 done
 
-ssh-keygen -t ed25519 -C "$email" -f "$HOME/.ssh/$file" -P "$password" &
-wait
+if [[ "$create" == "yes"  ]];then
+	echo "ssh key created."
+	ssh-keygen -t ed25519 -C "$email" -f "$HOME/.ssh/$file" -P "$password" &
+	wait
+fi
+echo "add ssh key."
 eval "$(ssh-agent -s)"
 wait
 ssh-add $HOME/.ssh/$file;
