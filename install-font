@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+fonts_dir="${HOME}/.local/share/fonts"
+if [ ! -d "${fonts_dir}" ]; then
+    echo "mkdir -p $fonts_dir"
+    mkdir -p "${fonts_dir}"
+else
+    echo "Found fonts dir $fonts_dir"
+fi
+
+zip=hack.zip
+curl --fail --location --show-error https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip --output ${zip}
+unzip -o -q -d ${fonts_dir} ${zip}
+rm ${zip}
+
+echo "fc-cache -f"
+fc-cache -f

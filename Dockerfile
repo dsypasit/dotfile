@@ -14,6 +14,8 @@ RUN yes | unminimize && \
         ca-certificates \
         man-db \
         curl \
+		gnupg \
+		lsb-release \
         && \
     add-apt-repository ppa:git-core/ppa && \
 	apt-get update && \
@@ -22,7 +24,7 @@ RUN yes | unminimize && \
         figlet sl tree nmap ed bc iputils-ping  htop curl \
         net-tools ssh sshpass sshfs rsync \
         cifs-utils smbclient bash-completion make wget less lolcat \
-		golang npm nodejs \
+		golang npm nodejs fzf \
         && \
 	apt-get clean
 
@@ -38,9 +40,16 @@ COPY user .
 COPY .tmux.reset.conf .
 COPY .tmux.conf .
 COPY starship_install .
+COPY get-docker.sh .
 COPY nvim/ .config/nvim/
 
+RUN  sh get-docker.sh
 RUN  sh starship_install --yes
+
+RUN apt-get install fontconfig unzip zip
+
+COPY install-font .
+RUN sh ./install-font
 
 CMD ["sh", "user"]
 
