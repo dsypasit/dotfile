@@ -10,7 +10,7 @@ new_float normal
 hide_edge_borders none
 
 # Window title font
-font xft:URWGothic-Book 11
+font xft: FiraCode Medium 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -29,7 +29,7 @@ bindsym $mod+d layout toggle split
 # Enable touchpad natural scrolling
 #exec_always --no-startup-id xinput set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 
-bindsym $mod+Return exec gnome-terminal --hide-menubar
+bindsym $mod+Return exec alacritty
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+f exec alacritty -e ranger
 #bindsym $mod+n workspace 5;  exec nitrogen
@@ -40,7 +40,8 @@ bindsym $mod+space --release exec "rofi -combi-modi drun,window,ssh -show combi 
 bindsym $mod+Shift+q kill
 
 bindsym $mod+p workspace 5; exec pavucontrol
-#bindsym $mod+Ctrl+b exec gnome-terminal -e 'bmenu'
+bindsym $mod+Shift+p exec alacritty -e 'alsamixer'
+bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 
 #interactive screenshot by pressing printscreen
 bindsym $mod+Shift+s exec flameshot gui -p $HOME/Pictures
@@ -55,19 +56,20 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
 #exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id conky
 exec --no-startup-id volumeicon
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id imwheel
-exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
+#exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
 exec_always --no-startup-id dunst
 
 bindsym Ctrl+space exec killall dunst && dunst
 
 #picom
-bindsym $mod+Shift+p exec "picom --experimental-backends || killall picom"
+bindsym $mod+Shift+o exec "picom --experimental-backends --config ~/.config/picom/picom.conf || killall picom"
 
 #Switch langauge
 exec_always --no-startup-id setxkbmap -layout 'us,th'
@@ -95,6 +97,8 @@ bindsym $mod+Shift+l move right
 
 bindsym $mod+v split v; exec notify-send 'Tile Vertically'
 bindsym $mod+b split h; exec notify-send 'Tile Horizontally'
+bindsym $mod+q split toggle
+
 bindsym $mod+f fullscreen toggle
 #bindsym $mod+Shift+Return floating toggle resize set 50 ppt 65 ppt; move position center
 bindsym $mod+Shift+Return floating toggle
@@ -104,6 +108,7 @@ bindsym $mod+minus scratchpad show;floating disable;
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+workspace_auto_back_and_forth yes
 
 # Workspace names
 # Eg: set $ws1 1:mail
@@ -289,7 +294,7 @@ client.background       #2B2C2B
 #############################
 
 # Set inner/outer gaps
-gaps inner 20
+gaps inner 5
 gaps outer 0
 # gaps top 30
 #bindsym $mod+Shift+t gaps top all set 30
@@ -303,7 +308,7 @@ gaps outer 0
 
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
