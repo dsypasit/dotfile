@@ -36,7 +36,7 @@ bindsym $mod+Shift+f exec alacritty -e ranger
 bindsym $mod+n exec sxiv -t ~/wallpapers
 bindsym $mod+Shift+d workspace 3;  exec discord --no-sandbox
 
-bindsym $mod+space --release exec "rofi -combi-modi drun,window,ssh -show combi -modi combi"
+bindsym $mod+space --release exec "rofi -show combi"
 bindsym $mod+Shift+q kill
 
 bindsym $mod+p workspace 5; exec pavucontrol
@@ -302,7 +302,7 @@ gaps outer 0
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
  #gaps inner all set 10
- bindsym $mod+Shift+b gaps outer current set 150;gaps inner current set 30;exec notify-send 'Small Tab'
+ bindsym $mod+Shift+b gaps outer current set 150;gaps inner current set 5;exec notify-send 'Small Tab'
 
  bindsym $mod+Shift+u gaps outer current set 0;
 
