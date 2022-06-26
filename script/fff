@@ -6,18 +6,18 @@
 # 2. Interactively restart Ripgrep with reload action
 #    * Press alt-enter to switch to fzf-only filtering
 # 3. Open the file in Vim
-RG_PREFIX="fd --type file --follow --color=always --hidden --exclude .git"
+RG_PREFIX="fd --follow --color=always --hidden --exclude .git"
 INITIAL_QUERY="${*:-}"
 IFS=: read -ra selected < <(
-  FZF_DEFAULT_COMMAND="$RG_PREFIX $(printf %q "$INITIAL_QUERY")" \
+  FZF_DEFAULT_COMMAND="$RG_PREFIX . $HOME" \
   fzf --ansi \
-      --color "hl:-1:underline,hl+:-1:underline:reverse" \
-      --disabled --query "$INITIAL_QUERY" \
-      --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
-      --bind "ctrl-l:unbind(change,ctrl-l)+change-prompt(2. fzf> )+enable-search+clear-query" \
-      --prompt '1. fd> ' \
-      --delimiter : \
-      --preview 'bat --style=numbers --color=always --line-range :500 {}'\
-      --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+	  --color "hl:-1:underline,hl+:-1:underline:reverse" \
+	  #--disabled --query "$INITIAL_QUERY" \
+	  #--bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+	  --bind "ctrl-l:unbind(change,ctrl-l)+change-prompt(2. fzf> )+enable-search+clear-query" \
+	  --prompt '1. fd> ' \
+	  --delimiter : \
+	  --preview 'bat --style=numbers --color=always --line-range :500 {}'\
+	  --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
 )
 [ -n "${selected[0]}" ] && nvim "${selected[0]}" "+${selected[1]}"
