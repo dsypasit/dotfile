@@ -17,7 +17,7 @@ if [[ "$create" == "yes"  ]];then
 fi
 echo "add ssh key."
 eval "$(ssh-agent -s)"
-wait
+sleep 2;
 ssh-add $HOME/.ssh/$file;
 wait
 cat "$HOME/.ssh/$file.pub"

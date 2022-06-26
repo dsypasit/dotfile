@@ -3,6 +3,9 @@
 # for examples
 
 source ~/dotfile/alias
+source ~/.profile
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
 
 # If not running interactively, don't do anything
 case $- in
@@ -126,3 +129,8 @@ fi
 # ~/.bashrc
 
 eval "$(starship init bash)"
+. "$HOME/.cargo/env"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --border --margin=1 --padding=1 \
+	--preview 'bat --style=numbers --color=always --line-range :500 {}'"

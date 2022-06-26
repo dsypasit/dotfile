@@ -18,7 +18,7 @@ alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
 alias v='nvim'
-alias vim='nvim'
+#alias vim='nvim'
 alias pac="sudo pacman"
 alias vf="vifm"
 alias ju="jupyter notebook"
@@ -31,6 +31,7 @@ alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
 alias w='feh --bg-fill --randomize ~/wallpapers'
+alias d='BROWSER=w3m ddgr'
 
 alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'
@@ -113,3 +114,5 @@ alias kd="killall Discord"
 alias gis="git status"
 alias xml="~/dotfile/script/xml"
 
+export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
+export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
