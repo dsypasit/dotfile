@@ -1,5 +1,6 @@
 #!/bin/bash
 export PATH=$PATH:~/dotfile/script/
+source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
 alias ls='lsd'
 alias ls='lsd'

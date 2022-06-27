@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+ffd(){
 RG_PREFIX="fd --follow -t d --color=always --hidden --exclude .git"
 INITIAL_QUERY="${*:-}"
 IFS=: read -ra selected < <(
@@ -9,8 +10,5 @@ IFS=: read -ra selected < <(
 	  --bind "ctrl-l:unbind(change,ctrl-l)+change-prompt(2. fzf> )+enable-search+clear-query" \
 	  --prompt '1. fd> ' \
 	  --delimiter : \
-	  --preview 'bat --style=numbers --color=always --line-range :500 {}'\
-	  --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
-)
-[ -n "${selected[0]}" ] && cd "${selected[0]}"
-exec $SHELL
+) && cd "${selected[0]}" && echo "${selected[0]}"
+}
