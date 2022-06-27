@@ -134,3 +134,5 @@ eval "$(starship init bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --border --margin=1 --padding=1 \
 	--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
+alias luamake=/home/dsypasit/Downloads/lua-language-server/3rd/luamake/luamake
