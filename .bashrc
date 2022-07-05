@@ -4,6 +4,8 @@
 
 source ~/dotfile/alias
 source ~/.profile
+alias lg=lazygit
+PATH=$PATH:/tmp/gdrive
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 

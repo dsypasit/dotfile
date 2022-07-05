@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$PATH:~/dotfile/script/
+export PATH=$PATH:~/dotfile/script/:
 export PATH=$PATH:$HOME/lua-language-server/bin
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"

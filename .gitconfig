@@ -1,13 +1,5 @@
-[cor]
-	editor = nvim
-
 [user]
-	name = dsypasit
 	email = ong.pasit@gmail.com
-
-[includeIf "gitdir: ~/sketchbook"]
-	[user]
-		email = s6301012620065@kmutnb.ac.th
-		name = Pasit Sri-intarasut
-
-
+	name = dsypasit
+[init]
+	defaultBranch = main

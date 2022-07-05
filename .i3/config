@@ -44,8 +44,12 @@ bindsym $mod+Shift+p exec alacritty -e 'alsamixer'
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 
 #interactive screenshot by pressing printscreen
-bindsym $mod+Shift+s exec flameshot gui -p $HOME/Pictures
-bindsym Print exec flameshot full -c -p $HOME/Pictures
+bindsym $mod+Shift+s exec flameshot gui 
+bindsym Print exec flameshot full -c
+#bindsym Print exec --no-startup-id i3-scrot -dc
+#bindsym $mod+Print exec --no-startup-id i3-scrot -wc
+#bindsym $mod+Shift+Print exec --no-startup-id i3-scrot -sc
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -58,6 +62,7 @@ exec --no-startup-id blueman-applet
 #exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id conky
 exec --no-startup-id volumeicon
+exec --no-startup-id flameshot
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 exec_always --no-startup-id ff-theme-util
@@ -154,7 +159,7 @@ bindsym $mod+Control+h move workspace to output left
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-assign [class="Chromium"] 1
+#assign [class="Chromium"] 1
 assign [class="discord"] 3
 assign [class="zoom"] 3
 assign [class="qpdfview"] 4
