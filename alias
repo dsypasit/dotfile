@@ -1,6 +1,7 @@
 #!/bin/bash
 export PATH=$PATH:~/dotfile/script/:
 export PATH=$PATH:$HOME/lua-language-server/bin
+. ~/dotfile/script/z.sh
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
 alias ls='lsd'
@@ -16,7 +17,7 @@ alias t='tmux'
 alias Jc='$HOME/dotfile/script/Jc.sh'
 
 alias aqua="$HOME/dotfile/animetion.sh"
-alias z="clear;zsh"
+#alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
 alias v='nvim'
@@ -49,7 +50,7 @@ alias lt='ls --tree'
 alias rng='ranger'
 
 alias aqua="$HOME/dotfile/animetion.sh"
-alias z="clear;zsh"
+#alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
 alias v='nvim'
@@ -81,7 +82,7 @@ alias lt='ls --tree'
 alias rng='ranger'
 
 alias aqua="$HOME/dotfile/animetion.sh"
-alias z="clear;zsh"
+#alias z="clear;zsh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
 alias v='nvim'

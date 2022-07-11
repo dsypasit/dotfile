@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+while true; do
+#row=10
+#col=$(( ($(tput cols) - ${#text}) / $#))
+#tput clear
+#tput cup $row $col
+clear
+for var in "$@"
+do
+	figlet -w $(tput cols) -c  -f 3d "$var" | lolcat
+done;
+sleep 3;
+done;
