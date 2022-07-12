@@ -39,7 +39,7 @@ bindsym $mod+Shift+d workspace 3;  exec discord --no-sandbox
 bindsym $mod+space --release exec "rofi -show combi"
 bindsym $mod+Shift+q kill
 
-bindsym $mod+p workspace 5; exec pavucontrol
+bindsym $mod+p exec pavucontrol
 bindsym $mod+Shift+p exec alacritty -e 'alsamixer'
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 
@@ -50,12 +50,13 @@ bindsym Print exec flameshot full -c
 #bindsym $mod+Print exec --no-startup-id i3-scrot -wc
 #bindsym $mod+Shift+Print exec --no-startup-id i3-scrot -sc
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+i exec glava
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends
-#exec --no-startup-id nitrogen --restore; sleep 1
-exec --no-startup-id feh --bg-scale "$HOME/.config/wall.png"
+exec --no-startup-id nitrogen --restore; sleep 1
+#exec --no-startup-id feh --bg-scale "$HOME/.config/wall.png"
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
@@ -70,6 +71,7 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id imwheel
 #exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
 exec_always --no-startup-id dunst
+exec_always --no-startup-id glava --desktop
 
 bindsym Ctrl+space exec killall dunst && dunst
 
@@ -160,8 +162,8 @@ bindsym $mod+Control+h move workspace to output left
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 #assign [class="Chromium"] 1
-assign [class="discord"] 3
-assign [class="zoom"] 3
+#assign [class="discord"] 3
+#assign [class="zoom"] 3
 assign [class="qpdfview"] 4
 for_window [instance=".*tmp.*"] move to workspace $ws5
 
