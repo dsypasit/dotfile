@@ -1,4 +1,9 @@
 #!/usr/bin/bash
+function cleanup() {
+    tput cnorm
+}
+
+trap cleanup EXIT
 
 while true; do
 #row=10
@@ -9,6 +14,8 @@ clear
 for var in "$@"
 do
 	figlet -w $(tput cols) -c  -f 3d "$var" | lolcat
+	tput civis
 done;
 sleep 3;
 done;
+tput cnorm
