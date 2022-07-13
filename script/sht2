@@ -1,0 +1,14 @@
+#!/bin/bash
+
+m=$*
+if [[ $# -eq 0 ]]; then
+	m="hello world"
+else
+	m=$*
+fi
+
+tmux send-keys "hd $m" C-m \; \
+	split-window -v \; \
+	send-keys 'unimatrix -c magenta -s 90' C-m \; \
+	split-window -h \; \
+	send-keys 'unimatrix -s 90' C-m \;

@@ -110,7 +110,6 @@ alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
 alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
 alias st="$HOME/dotfile/script/show-tmux"
 alias covid="$HOME/dotfile/script/covid"
-alias alert="$SCRIPT/alert"
 alias runpro="$SCRIPT/runpro"
 
 alias kd="killall Discord"

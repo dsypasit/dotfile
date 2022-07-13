@@ -1,0 +1,8 @@
+#!/bin/bash
+m=$1
+shift
+at now +$m minutes << end
+dunstify -t 20000 -u critical Alert "<span font='25px'><b>$*</b></span>"
+end
+
+
