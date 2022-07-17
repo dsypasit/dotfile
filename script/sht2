@@ -2,7 +2,7 @@
 
 m=$*
 if [[ $# -eq 0 ]]; then
-	m="hello world"
+	m="\"Hello World\" \"I'm dev\""
 else
 	m=$*
 fi

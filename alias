@@ -11,6 +11,13 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+if [ -f /usr/bin/exa ]; then
+	alias l='exa'
+	alias la='exa -la'
+	alias ll='exa -l'
+	alias lt='exa --tree'
+fi
+
 alias rng='ranger'
 alias t='tmux'
 
@@ -40,13 +47,6 @@ alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'
 alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
-alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
-alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
-alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-
 alias rng='ranger'
 
 alias aqua="$HOME/dotfile/animetion.sh"
@@ -71,13 +71,6 @@ alias w='feh --bg-fill --randomize ~/wallpapers'
 alias weather='clear && curl wttr.in'
 alias fetch='clear && neofetch'
 alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
-
-alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
-alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
-alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
 
 alias rng='ranger'
 
