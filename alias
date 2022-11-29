@@ -4,12 +4,6 @@ export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
 . ~/dotfile/script/z.sh
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
-alias ls='lsd'
-alias ls='lsd'
-alias ls='lsd'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
 
 if [ -f /usr/bin/exa ]; then
 	alias l='exa'
@@ -28,7 +22,6 @@ alias aqua="$HOME/dotfile/animetion.sh"
 alias vz="nvim ~/.zshrc"
 alias vv="nvim ~/.config/nvim/init.vim"
 alias v='nvim'
-#alias vim='nvim'
 alias pac="sudo pacman"
 alias vf="vifm"
 alias ju="jupyter notebook"
@@ -40,7 +33,7 @@ alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
-alias w='feh --bg-fill --randomize ~/wallpapers'
+alias w='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-auto '
 alias d='BROWSER=w3m ddgr'
 
 alias weather='clear && curl wttr.in'
@@ -49,54 +42,7 @@ alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg
 
 alias rng='ranger'
 
-alias aqua="$HOME/dotfile/animetion.sh"
-#alias z="clear;zsh"
-alias vz="nvim ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias v='nvim'
-alias vim='nvim'
-alias pac="sudo pacman"
-alias vf="vifm"
-alias ju="jupyter notebook"
-
-alias cl='clear'
-alias rh='cd $PWD;python3 -m http.server --cgi 8080'
-alias cf='fc-list'
-alias ct="source ~/my_linux_env/bash_script/timeout.sh"
-alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="~/dotfile/backup"
-alias vb="~/scripts/nvim_backup"
-alias w='feh --bg-fill --randomize ~/wallpapers'
-
-alias weather='clear && curl wttr.in'
-alias fetch='clear && neofetch'
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
-
-alias rng='ranger'
-
-alias aqua="$HOME/dotfile/animetion.sh"
-#alias z="clear;zsh"
-alias vz="nvim ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias v='nvim'
-alias vim='nvim'
-alias pac="sudo pacman"
-alias vf="vifm"
-alias ju="jupyter notebook"
-
-alias cl='clear'
-alias rh='cd $PWD;python3 -m http.server --cgi 8080'
-alias cf='fc-list'
-alias ct="source ~/my_linux_env/bash_script/timeout.sh"
-alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="~/dotfile/backup"
-alias vb="~/scripts/nvim_backup"
-alias w='feh --bg-fill --randomize ~/wallpapers'
 alias wa="sxiv -t ~/wallpapers"
-
-alias weather='clear && curl wttr.in'
-alias fetch='clear && neofetch'
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
 alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
 alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
