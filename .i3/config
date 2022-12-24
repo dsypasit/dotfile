@@ -32,11 +32,13 @@ bindsym $mod+d layout toggle split
 bindsym $mod+Return exec alacritty
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+f exec alacritty -e ranger
-#bindsym $mod+n workspace 5;  exec nitrogen
-bindsym $mod+n exec sxiv -t ~/wallpapers
+bindsym $mod+n exec nitrogen
+#bindsym $mod+n exec sxiv -t ~/wallpapers
 bindsym $mod+Shift+d workspace 3;  exec discord --no-sandbox
 
-bindsym $mod+space --release exec "rofi -show combi"
+#bindsym $mod+space --release exec "rofi -show combi"
+bindsym $mod+space --release exec "rofi -combi-modi window,drun -theme solarized -font -show drun -icon-theme 'Papirus' -show-icons"
+
 bindsym $mod+Shift+q kill
 
 bindsym $mod+p exec pavucontrol
@@ -72,6 +74,10 @@ exec_always --no-startup-id imwheel
 #exec_always --no-startup-id alsactl --file ~/.config/asound.state restore
 exec_always --no-startup-id dunst
 exec_always --no-startup-id glava --desktop
+
+# Lock screen
+bindsym $mod+9 exec --no-startup-id blurlock
+exec --no-startup-id xautolock -time 10 -locker blurlock
 
 bindsym Ctrl+space exec killall dunst && dunst
 
