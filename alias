@@ -33,7 +33,7 @@ alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
-alias w='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-auto '
+alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
 alias d='BROWSER=w3m ddgr'
 
 alias weather='clear && curl wttr.in'
@@ -54,6 +54,8 @@ alias runpro="$SCRIPT/runpro"
 alias kd="killall Discord"
 alias gis="git status"
 alias xml="~/dotfile/script/xml"
+
+alias vimstartup=" rm vim.log && nvim --startuptime vim.log -c 'q' && cat vim.log | sort -nrk 3 | head -20"
 
 export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
 export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
