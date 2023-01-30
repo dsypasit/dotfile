@@ -26,20 +26,19 @@ font:
   italic:
     family: Fira Code Nerd Font
     style: Italic
-  size: 9
+  size: 11
   offset:
     x: 0
     y: 0
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: false
   debug:
     persistent_logging: false
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "0x0A0E14" #282828 #1d2021
+    background: "#212122" #282828 #1d2021 #0x0A0E14 #212122
     foreground: "#ebdbb2"
   normal:
     black:   '0x282828'
