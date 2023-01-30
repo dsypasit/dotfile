@@ -82,7 +82,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 bindsym Ctrl+space exec killall dunst && dunst
 
 #picom
-bindsym $mod+Shift+o exec "picom --experimental-backends --config ~/.config/picom/picom.conf || killall picom"
+bindsym $mod+Shift+o exec "picom --config ~/.config/picom/picom.conf || killall picom"
 
 #Switch langauge
 exec_always --no-startup-id setxkbmap -layout 'us,th'
