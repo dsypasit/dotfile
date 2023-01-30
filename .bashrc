@@ -138,3 +138,4 @@ export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --border --
 	--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 alias luamake=/home/dsypasit/Downloads/lua-language-server/3rd/luamake/luamake
+export TERM=alacritty
