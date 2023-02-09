@@ -37,7 +37,7 @@ bindsym $mod+n exec nitrogen
 bindsym $mod+Shift+d workspace 3;  exec discord --no-sandbox
 
 #bindsym $mod+space --release exec "rofi -show combi"
-bindsym $mod+space --release exec "rofi -combi-modi window,drun -theme solarized -font -show drun -icon-theme 'Papirus' -show-icons"
+bindsym $mod+space --release exec "rofi -combi-modi window,drun -font -show drun -icon-theme 'Papirus' -show-icons"
 
 bindsym $mod+Shift+q kill
 
