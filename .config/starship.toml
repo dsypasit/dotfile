@@ -1,4 +1,4 @@
-add_newline = false
+add_newline = true
 command_timeout = 1000
 
 [character]
@@ -10,32 +10,32 @@ vicmd_symbol = "[V](bold green) "
 symbol = ' '
 
 [directory]
-truncation_symbol = "…/"
-style = "bold #26b846"
+# truncation_symbol = "…/"
+# style = "bold #26b846"
 
 [git_branch]
 symbol = "[ ](bold #ef3c40)"
-style = "bold #55a630"
+# style = "bold #55a630"
 
 [git_status]
 format = "[$all_status$ahead_behind](bold red) "
 
 #status
-untracked = "[ untracked ](bold #FF990D)"
-modified = "[ modified ](bold #FF990D)"
-deleted = "[✘ deleted ](bold red)"
-renamed = " renamed "
+untracked = "[ ](bold bright-red)"
+modified = "[ ](bold #fe8019)"
+deleted = "[✘ ](bold red)"
+renamed = "[ ](bold #fe8019)"
 
-staged = "[ stage ](bold #FEDE00)"
+staged = "[ ](bold green)"
 
 #ahead_behind
 ahead = "[ ](bold green)"
 behind = "[ ](bold green)"
 
-[username]
-style_user = "#118ab2 bold"
-style_root = "red bold"
-format = "[](#e9f0fc)[ $user]($style) "
-disabled = false
-show_always = true
+# [username]
+# style_user = "#118ab2 bold"
+# style_root = "red bold"
+# format = "[$user]($style) "
+# disabled = false
+# show_always = true
 
