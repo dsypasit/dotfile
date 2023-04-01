@@ -59,3 +59,5 @@ alias vimstartup=" rm vim.log && nvim --startuptime vim.log -c 'q' && cat vim.lo
 
 export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
 export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
+
+alias newip="echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051"
