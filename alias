@@ -37,7 +37,7 @@ alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
 alias d='BROWSER=w3m ddgr'
 
 alias weather='clear && curl wttr.in'
-alias fetch='clear && neofetch'
+alias fetch='clear && neofetch --ascii ~/dotfile/ascii --ascii_colors 7 3 1'
 alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
 
 alias rng='ranger'
