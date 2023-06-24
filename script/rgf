@@ -1,0 +1,18 @@
+#!/bin/bash
+query=$1
+RG_FILE="rg --column --line-number --no-heading $query | awk -F: '{ print $1 }' | sort -u "
+
+RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+INITIAL_QUERY=""
+IFS=: read -ra selected < <(
+  FZF_DEFAULT_COMMAND="rg --no-heading $(printf %q "$INITIAL_QUERY") | awk -F: '{ print $1 }' | sort -u " \
+  fzf --ansi \
+      --color "hl:-1:underline,hl+:-1:underline:reverse" \
+      --disabled --query "$INITIAL_QUERY" \
+      --bind "change:reload:sleep 0.1; rg --no-heading {q} | awk -F: '{ print $1 }' | sort -u  || true" \
+      --bind "alt-enter:unbind(change,alt-enter)+change-prompt(2. fzf> )+enable-search+clear-query" \
+      --prompt '1. ripgrep> ' \
+      --delimiter : \
+      --preview 'rg --color=always --smart-case {q} {1}' \
+)
+[ -n "${selected[0]}" ] && nvim "${selected[0]}" "+${selected[1]}"
