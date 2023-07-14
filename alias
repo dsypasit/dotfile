@@ -33,7 +33,8 @@ alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
-alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
+# alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
+alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs swww img --transition-type wipe --transition-angle 30 --transition-step 90'
 alias d='BROWSER=w3m ddgr'
 
 alias weather='clear && curl wttr.in'
