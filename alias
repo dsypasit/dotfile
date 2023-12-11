@@ -5,11 +5,14 @@ export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
 
-if [ -f /usr/bin/exa ]; then
-	alias l='exa'
-	alias la='exa -la'
-	alias ll='exa -l'
-	alias lt='exa --tree'
+if [ -f /usr/bin/lsd ]; then
+	alias ls='lsd'
+	alias la='lsd -la'
+	alias ll='lsd -la'
+	alias lt='lsd --tree'
+else
+    # If 'lsd' is not found, print a warning message
+    echo "Warning: lsd is not installed. Aliases will not be set."
 fi
 
 alias rng='ranger'
@@ -33,7 +36,7 @@ alias ct="source ~/my_linux_env/bash_script/timeout.sh"
 alias fp="fzf --preview 'bat --color "always" {}'"
 alias mb="~/dotfile/backup"
 alias vb="~/scripts/nvim_backup"
-# alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
+alias www='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
 alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs swww img --transition-type wipe --transition-angle 30 --transition-step 90'
 alias d='BROWSER=w3m ddgr'
 
