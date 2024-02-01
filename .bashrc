@@ -149,10 +149,18 @@ export NNN_OPTS="H" # 'H' shows the hidden files. Same as option -H (so 'nnn -de
 # export NNN_OPTS="deH" # if you prefer to have all the options at the same place
 export LC_COLLATE="C"                                                             # hidden files on top
 export NNN_FIFO="/tmp/nnn.fifo"                                                   # temporary buffer for the previews
-export NNN_FCOLORS="AAAAE631BBBBCCCCDDDD9999"                                     # feel free to change the colors
 export NNN_PLUG='p:preview-tui;j:autojump;f:fzopen;v:imgview;d:dragdrop;e:editor' # many other plugins are available here: https://github.com/jarun/nnn/tree/master/plugins
 export SPLIT='v'                                                                  # to split Kitty vertically
 alias ls="nnn -de"
+
+# This second option relies on you're terminal using the catppuccin theme and well use true catppuccin colors:
+BLK="03" CHR="03" DIR="04" EXE="02" REG="07" HARDLINK="05" SYMLINK="05" MISSING="08" ORPHAN="01" FIFO="06" SOCK="03" UNKNOWN="01"
+
+# Export Context Colors
+export NNN_COLORS="#04020301;4231"
+
+# Finally Export the set file colors ( Both options require this)
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$UNKNOWN"
 #-----
 n() { # to cd on quit
 	if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
