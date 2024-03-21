@@ -11,8 +11,8 @@ if [ -f /usr/bin/lsd ]; then
 	alias ll='lsd -la'
 	alias lt='lsd --tree'
 else
-    # If 'lsd' is not found, print a warning message
-    echo "Warning: lsd is not installed. Aliases will not be set."
+	# If 'lsd' is not found, print a warning message
+	echo "Warning: lsd is not installed. Aliases will not be set."
 fi
 
 alias rng='ranger'
@@ -65,3 +65,24 @@ export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
 export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
 
 alias newip="echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051"
+
+FZF_GIT_LOG() {
+	git log --oneline --format="%C(auto)%h %s%d" | fzf --ansi --preview "git show --color=always {1}" --bind 'enter:become(echo {1})'
+}
+
+FZF_GIT_DIFF() {
+	git log --oneline --format="%C(auto)%h %s%d" | fzf --ansi --preview "git show --color=always {1}" --bind 'enter:become(echo {1})' | xargs -I {} git diff {}
+}
+
+FZF_GIT_STATUS() {
+	git status -s | fzf --preview="git diff --color=always HEAD {2}"
+}
+
+FZF_DOCKER_PS() {
+	docker ps --format="{{.ID}}\t{{.Names}}\t{{.Image}}" | fzf --preview='docker logs {1}'
+}
+
+alias gl=FZF_GIT_LOG
+alias gld=FZF_GIT_DIFF
+alias gs=FZF_GIT_STATUS
+alias dps=FZF_DOCKER_PS

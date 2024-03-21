@@ -128,8 +128,17 @@ eval "$(starship init bash)"
 . "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --border --margin=1 --padding=1 \
-	--preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'"
+export FZF_DEFAULT_OPTS="
+--height=100%
+--layout=reverse
+--info=inline
+--border=none
+--preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
+--preview-window=up:80%
+--bind ctrl-d:preview-down,ctrl-u:preview-up
+--bind ctrl-b:preview-bottom,ctrl-t:preview-top
+
+  "
 
 alias luamake=/home/dsypasit/Downloads/lua-language-server/3rd/luamake/luamake
 export TERM=kitty
