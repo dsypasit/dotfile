@@ -82,7 +82,12 @@ FZF_DOCKER_PS() {
 	docker ps --format="{{.ID}}\t{{.Names}}\t{{.Image}}" | fzf --preview='docker logs {1}'
 }
 
+FZF_TMUX_SWITCH_SESSION() {
+	tmux ls | cut -d':' -f1 | fzf --preview 'tmux list-windows -t{}' | awk '{print $1}' | xargs tmux switch-client -t
+}
+
 alias gl=FZF_GIT_LOG
 alias gld=FZF_GIT_DIFF
 alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
+alias ts=FZF_TMUX_SWITCH_SESSION
