@@ -91,3 +91,6 @@ alias gld=FZF_GIT_DIFF
 alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
+
+alias dcu="docker compose up"
+alias dcd="docker compose down"
