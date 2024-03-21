@@ -129,10 +129,10 @@ eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--height=60% --layout=reverse --info=inline --border --margin=1 --padding=1 \
-	--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+	--preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'"
 
 alias luamake=/home/dsypasit/Downloads/lua-language-server/3rd/luamake/luamake
-export TERM=alacritty
+export TERM=kitty
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -151,7 +151,7 @@ export LC_COLLATE="C"                                                           
 export NNN_FIFO="/tmp/nnn.fifo"                                                   # temporary buffer for the previews
 export NNN_PLUG='p:preview-tui;j:autojump;f:fzopen;v:imgview;d:dragdrop;e:editor' # many other plugins are available here: https://github.com/jarun/nnn/tree/master/plugins
 export SPLIT='v'                                                                  # to split Kitty vertically
-alias ls="nnn -de"
+# alias ls="nnn -de"
 
 # This second option relies on you're terminal using the catppuccin theme and well use true catppuccin colors:
 BLK="03" CHR="03" DIR="04" EXE="02" REG="07" HARDLINK="05" SYMLINK="05" MISSING="08" ORPHAN="01" FIFO="06" SOCK="03" UNKNOWN="01"
