@@ -97,13 +97,18 @@ FZF_DOCKER_PS() {
 }
 
 FZF_TMUX_SWITCH_SESSION() {
-	tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
+	[[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+	if [ $1 ]; then
+		tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1")
+		return
+	fi
+	session=$(tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
 		--border-label 'switch session' \
 		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
 		--bind 'ctrl-a:execute(tmux new -s {q} -d )' \
 		--bind 'ctrl-d:execute(tmux kill-ses -t {})' \
-		--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)' |
-		awk '{print $1}' | xargs tmux switch-client -t
+		--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)') &&
+		tmux $change -t "$session" || echo "No sessions found."
 }
 
 FZF_CD() {
