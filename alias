@@ -11,7 +11,7 @@ export FZF_TMUX_OPTS='-p80%,60%'
 export FZF_DEFAULT_OPTS="
 --height=100%
 --layout=reverse
---info=inline-right
+--info=right
 --border=thinblock
 --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
 --preview-window=up:80%
@@ -124,7 +124,6 @@ FZF_VF() {
 	text=${text[@]:4}
 	nvim $(
 		bfs -type f -exclude \( $text \) | fzf-tmux -p 90% \
-			--preview 'tree -L 2 {}' \
 			--preview-window=up:60% \
 			--border-label='fzf cd'
 	)
