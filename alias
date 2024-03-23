@@ -4,6 +4,20 @@ export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
 . ~/dotfile/script/z.sh
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
+export FZF_TMUX=1
+
+export FZF_TMUX_OPTS='-p80%,60%'
+
+export FZF_DEFAULT_OPTS="
+--height=100%
+--layout=reverse
+--info=inline-right
+--border=none
+--preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
+--preview-window=up:80%
+--bind ctrl-d:preview-down,ctrl-u:preview-up
+--bind ctrl-b:preview-bottom,ctrl-t:preview-top
+  "
 
 if [ -f /usr/bin/lsd ]; then
 	alias ls='lsd'
@@ -83,7 +97,7 @@ FZF_DOCKER_PS() {
 }
 
 FZF_TMUX_SWITCH_SESSION() {
-	tmux ls | cut -d':' -f1 | fzf --preview 'tmux list-windows -t{}' \
+	tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
 		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
 		--bind 'ctrl-a:execute(tmux new -s {q} -d )' \
 		--bind 'ctrl-d:execute(tmux kill-ses -t {})' \
@@ -91,11 +105,26 @@ FZF_TMUX_SWITCH_SESSION() {
 		awk '{print $1}' | xargs tmux switch-client -t
 }
 
+FZF_CD() {
+	export FZF_DEFAULT_OPTS="
+  --height=100%
+  --layout=reverse
+  --info=right
+  --border=none
+  --preview 'tree -L 2 {}'
+  --preview-window=up:60%
+  --bind ctrl-d:preview-down,ctrl-u:preview-up
+  --bind ctrl-b:preview-bottom,ctrl-t:preview-top
+  "
+	cd $(bfs -type d -exclude -name .git | fzf-tmux -p 90%)
+}
+
 alias gl=FZF_GIT_LOG
 alias gld=FZF_GIT_DIFF
 alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
+alias cdf=FZF_CD
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
