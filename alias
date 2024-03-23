@@ -12,7 +12,7 @@ export FZF_DEFAULT_OPTS="
 --height=100%
 --layout=reverse
 --info=inline-right
---border=none
+--border=thinblock
 --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
 --preview-window=up:80%
 --bind ctrl-d:preview-down,ctrl-u:preview-up
@@ -98,6 +98,7 @@ FZF_DOCKER_PS() {
 
 FZF_TMUX_SWITCH_SESSION() {
 	tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
+		--border-label 'switch session' \
 		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
 		--bind 'ctrl-a:execute(tmux new -s {q} -d )' \
 		--bind 'ctrl-d:execute(tmux kill-ses -t {})' \
@@ -106,17 +107,22 @@ FZF_TMUX_SWITCH_SESSION() {
 }
 
 FZF_CD() {
-	export FZF_DEFAULT_OPTS="
-  --height=100%
-  --layout=reverse
-  --info=right
-  --border=none
-  --preview 'tree -L 2 {}'
-  --preview-window=up:60%
-  --bind ctrl-d:preview-down,ctrl-u:preview-up
-  --bind ctrl-b:preview-bottom,ctrl-t:preview-top
-  "
-	cd $(bfs -type d -exclude -name .git | fzf-tmux -p 90%)
+	exclude_files=(".git" "node_modules" "target")
+	text=$(printf " -or -name %s " "${exclude_files[@]}")
+	text=${text[@]:4}
+	cd $(
+		bfs -type d -exclude \( $text \) | fzf-tmux -p 90% \
+			--preview 'tree -L 2 {}' \
+			--preview-window=up:60% \
+			--border-label='fzf cd'
+	)
+}
+
+FZF_MISE_VERSION() {
+	mise ls | fzf-tmux -p 80% \
+		--preview '' \
+		--border-label='Mise version' |
+		awk '{printf "%s@%s", $1,$2}' | xargs -I _ mise use _
 }
 
 alias gl=FZF_GIT_LOG
@@ -125,6 +131,7 @@ alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
 alias cdf=FZF_CD
+alias msv=FZF_MISE_VERSION
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
