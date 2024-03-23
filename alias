@@ -130,7 +130,7 @@ FZF_VF() {
 	nvim $(
 		bfs -type f -exclude \( $text \) | fzf-tmux -p 90% \
 			--preview-window=up:60% \
-			--border-label='fzf cd'
+			--border-label='fzf edit file'
 	)
 }
 
