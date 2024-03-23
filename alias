@@ -17,7 +17,19 @@ export FZF_DEFAULT_OPTS="
 --preview-window=up:80%
 --bind ctrl-d:preview-down,ctrl-u:preview-up
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
+--bind 'ctrl-/:change-preview-window(down|hidden|)'
   "
+export FZF_CTRL_T_OPTS="
+--preview ''
+"
+
+export FZF_CTRL_R_OPTS="
+--preview ''
+"
+
+export FZF_ALT_C_OPTS="
+--preview ''
+"
 
 if [ -f /usr/bin/lsd ]; then
 	alias ls='lsd'
