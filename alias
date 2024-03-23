@@ -84,7 +84,7 @@ FZF_DOCKER_PS() {
 
 FZF_TMUX_SWITCH_SESSION() {
 	tmux ls | cut -d':' -f1 | fzf --preview 'tmux list-windows -t{}' \
-		--header 'Press CTRL-R to reload' \
+		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
 		--bind 'ctrl-a:execute(tmux new -s {q} -d )' \
 		--bind 'ctrl-d:execute(tmux kill-ses -t {})' \
 		--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)' |
