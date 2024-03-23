@@ -118,6 +118,18 @@ FZF_CD() {
 	)
 }
 
+FZF_VF() {
+	exclude_files=(".git" "node_modules" "target")
+	text=$(printf " -or -name %s " "${exclude_files[@]}")
+	text=${text[@]:4}
+	nvim $(
+		bfs -type f -exclude \( $text \) | fzf-tmux -p 90% \
+			--preview 'tree -L 2 {}' \
+			--preview-window=up:60% \
+			--border-label='fzf cd'
+	)
+}
+
 FZF_MISE_VERSION() {
 	mise ls | fzf-tmux -p 80% \
 		--preview '' \
@@ -131,6 +143,7 @@ alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
 alias cdf=FZF_CD
+alias vf=FZF_VF
 alias msv=FZF_MISE_VERSION
 
 alias dcu="docker compose up"
