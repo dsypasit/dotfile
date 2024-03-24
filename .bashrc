@@ -125,27 +125,10 @@ fi
 # ~/.bashrc
 
 eval "$(starship init bash)"
-. "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS="
---height=100%
---layout=reverse
---info=inline
---border=none
---preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
---preview-window=up:80%
---bind ctrl-d:preview-down,ctrl-u:preview-up
---bind ctrl-b:preview-bottom,ctrl-t:preview-top
-
-  "
-
+eval "$(fzf --bash)"
 alias luamake=/home/dsypasit/Downloads/lua-language-server/3rd/luamake/luamake
-export TERM=kitty
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -183,3 +166,10 @@ n() { # to cd on quit
 		rm -f "$NNN_TMPFILE" >/dev/null
 	fi
 }
+export PATH="$PATH:/opt/nvim-linux64/bin"
+eval "$(~/.local/bin/mise activate bash)"
+export PATH=$PATH:/usr/local/go/bin
+. "$HOME/.cargo/env"
+eval "$(~/.local/bin/mise activate bash)"
+echo "hi bro!"
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0

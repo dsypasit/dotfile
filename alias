@@ -18,6 +18,7 @@ export FZF_DEFAULT_OPTS="
 --bind ctrl-d:preview-down,ctrl-u:preview-up
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
 --bind 'ctrl-/:change-preview-window(down|hidden|)'
+--cycle
   "
 export FZF_CTRL_T_OPTS="
 --preview ''
