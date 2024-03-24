@@ -117,8 +117,8 @@ FZF_TMUX_SWITCH_SESSION() {
 	session=$(tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
 		--border-label 'switch session' \
 		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
-		--bind 'ctrl-a:execute(tmux new -s {q} -d )' \
-		--bind 'ctrl-d:execute(tmux kill-ses -t {})' \
+		--bind 'ctrl-a:execute(tmux new -s {q} -d )+reload(tmux ls | cut -d ":" -f1)' \
+		--bind 'ctrl-d:execute(tmux kill-ses -t {})+reload(tmux ls | cut -d ":" -f1)' \
 		--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)') &&
 		tmux $change -t "$session" || echo "No sessions found."
 }
