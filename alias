@@ -135,10 +135,11 @@ FZF_CD() {
 	# 		--border-label='fzf cd'
 	# )
 	dr=$(
-		bfs -type d -exclude \( $text \) | fzf-tmux -p 90% \
+		bfs -type d -exclude \( $text \) 2>&1 | fzf-tmux -p 90% \
+			\
 			--preview 'tree -L 2 {}' \
 			--preview-window=up:60% \
-			--border-label='fzf cd'
+			--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
 	) && test $? -eq 0 && cd $dr
 }
 
@@ -160,6 +161,7 @@ FZF_VF() {
 FZF_MISE_VERSION() {
 	mise ls | fzf-tmux -p 80% \
 		--preview '' \
+		--bind 'ctrl-a:execute(mise use {q})+reload(mise ls)' \
 		--border-label='Mise version' |
 		awk '{printf "%s@%s", $1,$2}' | xargs -I _ mise use _
 }
