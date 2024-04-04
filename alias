@@ -106,7 +106,7 @@ FZF_GIT_STATUS() {
 }
 
 FZF_DOCKER_PS() {
-	docker ps --format="{{.ID}}\t{{.Names}}\t{{.Image}}" | fzf --preview='docker logs {1}'
+	docker ps --format="{{.ID}}\t{{.Names}}\t{{.Image}}" | fzf --preview='docker logs {1}' | awk '{print $1}'
 }
 
 FZF_TMUX_SWITCH_SESSION() {
