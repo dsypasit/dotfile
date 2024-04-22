@@ -152,7 +152,7 @@ FZF_VF() {
 	# 		--preview-window=up:60% \
 	# 		--border-label='fzf edit file'
 	# )
-	file=$(bfs -type f -exclude \( $text \) | fzf-tmux -p 90% \
+	file=$(bfs -type f -exclude \( $text \) 2>&1 | fzf-tmux -p 90% \
 		--preview-window=up:60% \
 		--border-label='fzf edit file' \
 		--print0) && test $? -eq 0 && nvim $file
