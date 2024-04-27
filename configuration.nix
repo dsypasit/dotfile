@@ -143,6 +143,9 @@ in
       gnumake
       unstable.ollama
       xdg-utils
+      kubectl
+      minikube
+      awscli2
       ];
 
   programs.nix-ld.enable = true;

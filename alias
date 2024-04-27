@@ -166,6 +166,19 @@ FZF_MISE_VERSION() {
 		awk '{printf "%s@%s", $1,$2}' | xargs -I _ mise use _
 }
 
+FZF_KUBE_PODS() {
+	preview_cmd='kubectl describe pods {1}'
+	kubectl get pods | fzf-tmux -p 90% \
+		\
+		--preview-window=up:80% \
+		--header-lines=1 \
+		--preview "$preview_cmd" \
+		--bind "focus:preview-bottom" \
+		--bind 'ctrl-j:down' \
+		--bind 'ctrl-k:up' \
+		--border-label='kube get pods' | awk '{print $1}'
+}
+
 alias gl=FZF_GIT_LOG
 alias gld=FZF_GIT_DIFF
 alias gs=FZF_GIT_STATUS
@@ -174,6 +187,7 @@ alias ts=FZF_TMUX_SWITCH_SESSION
 alias cdf=FZF_CD
 alias vf=FZF_VF
 alias msv=FZF_MISE_VERSION
+alias kgp=FZF_KUBE_PODS
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
