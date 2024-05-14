@@ -1,16 +1,16 @@
 #!/bin/bash
 export PATH=$PATH:~/dotfile/script/:
 export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
-. ~/dotfile/script/z.sh
+# . ~/dotfile/script/z.sh
 source ~/dotfile/script/ffd
 alias scr="cd ~/dotfile/script"
 export FZF_TMUX=1
-
 export FZF_TMUX_OPTS='-p80%,60%'
 
 export BAT_THEME="Catppuccin Mocha"
 
 # --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
+export FZF_DEFAULT_COMMAND="fd -H -t f -E '.git/'"
 export FZF_DEFAULT_OPTS="
 --height=100%
 --layout=reverse
@@ -134,7 +134,7 @@ FZF_CD() {
 
 FZF_VF() {
 	file=$(
-		bfs -type d -exclude \( \
+		bfs -type f -exclude \( \
 			-name .git \
 			-or -name node_modules \
 			-or -name target \
