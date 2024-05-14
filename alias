@@ -10,7 +10,13 @@ export FZF_TMUX_OPTS='-p80%,60%'
 export BAT_THEME="Catppuccin Mocha"
 
 # --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
-export FZF_DEFAULT_COMMAND="fd -H -t f -E '.git/'"
+export FZF_DEFAULT_COMMAND="
+		bfs -type f -exclude \( \
+			-name .git \
+			-or -name node_modules \
+			-or -name target \
+			\) 2>&1
+"
 export FZF_DEFAULT_OPTS="
 --height=100%
 --layout=reverse
