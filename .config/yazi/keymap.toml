@@ -1,0 +1,14 @@
+# shell --confirm 'swww img "$(readlink "$1")" --transition-bezier .43,1.19,1,.4 --transition-type grow --transition-duration 0.4 --transition-fps 60 --invert-y --transition-pos "$(hyprctl cursorpos)" & ' 
+# shell --confirm 'notify-send $1'
+[manager]
+append_keymap = [
+  # This will override all default keybindings, and just keep the two below.
+  { on = [
+    "<C-j>",
+  ], run = '''
+    shell --confirm 'swww img "$1" --transition-bezier .43,1.19,1,.4 --transition-type grow --transition-duration 0.4 --transition-fps 60 --invert-y --transition-pos "$(hyprctl cursorpos)" & ' 
+    ''', desc = "Just for test!" },
+  { on = [
+    "<C-k>",
+  ], run = 'echo', desc = "Just for test!" },
+]
