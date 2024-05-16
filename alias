@@ -43,6 +43,10 @@ export FZF_ALT_C_OPTS="
 
 alias rng='ranger'
 alias t='tmux'
+alias tkr='tmux kill-ser'
+alias tks='tmux kill-ses'
+alias tkw='tmux kill-ses'
+alias tkp='tmux kill-ses'
 
 alias Jc='$HOME/dotfile/script/Jc.sh'
 
