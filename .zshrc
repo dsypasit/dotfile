@@ -1,192 +1,96 @@
-  #Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#neofetch
-#figlet Welcom  Dsy
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-export PATH=$PATH:$HOME/bin:/usr/local/bin:$HOME/.config/rofi/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-export TERMINAL=/usr/bin/alacritty
-export ZSH="/home/dsypasit/.oh-my-zsh"
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
+ZSH=/usr/share/oh-my-zsh/
 
-export DOWNGRADE_FROM_ALA=1
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# # Path to powerlevel10k theme
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-eval "$(starship init zsh)"
-
-plugins=(
-	zsh-syntax-highlighting
-	git
-	zsh-autosuggestions
-	#autojump
-)
-
-source $HOME/dotfile/alias
-
+# List of plugins used
+plugins=( git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting )
 source $ZSH/oh-my-zsh.sh
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# In case a command is not found, try to find the package that has it
+function command_not_found_handler {
+    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
+    printf 'zsh: command not found: %s\n' "$1"
+    local entries=( ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"} )
+    if (( ${#entries[@]} )) ; then
+        printf "${bright}$1${reset} may be found in the following packages:\n"
+        local pkg
+        for entry in "${entries[@]}" ; do
+            local fields=( ${(0)entry} )
+            if [[ "$pkg" != "${fields[2]}" ]] ; then
+                printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
+            fi
+            printf '    /%s\n' "${fields[4]}"
+            pkg="${fields[2]}"
+        done
+    fi
+    return 127
+}
 
-bindkey "^k" autosuggest-accept
+# Detect the AUR wrapper
+if pacman -Qi yay &>/dev/null ; then
+   aurhelper="yay"
+elif pacman -Qi paru &>/dev/null ; then
+   aurhelper="paru"
+fi
 
-#for fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+function in {
+    local -a inPkg=("$@")
+    local -a arch=()
+    local -a aur=()
 
+    for pkg in "${inPkg[@]}"; do
+        if pacman -Si "${pkg}" &>/dev/null ; then
+            arch+=("${pkg}")
+        else 
+            aur+=("${pkg}")
+        fi
+    done
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+    if [[ ${#arch[@]} -gt 0 ]]; then
+        sudo pacman -S "${arch[@]}"
+    fi
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+    if [[ ${#aur[@]} -gt 0 ]]; then
+        ${aurhelper} -S "${aur[@]}"
+    fi
+}
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Helpful aliases
+alias  c='clear' # clear terminal
+alias  l='eza -lh  --icons=auto' # long list
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias lt='eza --icons=auto --tree' # list folder as tree
+alias un='$aurhelper -Rns' # uninstall package
+alias up='$aurhelper -Syu' # update system/package/aur
+alias pl='$aurhelper -Qs' # list installed package
+alias pa='$aurhelper -Ss' # list availabe package
+alias pc='$aurhelper -Sc' # remove unused cache
+alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
+alias vc='code' # gui code editor
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Handy change dir shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
+# Always mkdir a path (this doesn't inhibit functionality to make a single dir)
+alias mkdir='mkdir -p'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Example aliases
+#Display Pokemon
+# pokemon-colorscripts --no-title -r 1,3,6
 
-alias chmodx="chmod +x"
-alias un="cd ~/codes/university_code/"
-alias processing="$HOME/Downloads/processing-3.5.4/processing"
+source ~/dotfile/alias
+# ~/.zshrc
 
-fk(){du -a ~/coding | awk '{print $2}' | fzf | xargs -o nvim}
-html(){touch index.html script.js style.css}
-
-scr()
-{
-	cd ~/scripts/$1
-}
-
-
-stenv()
-{
-	op=$1
-	name="env"
-	if [[ $op == 'mk' ]]; then
-		if [[ -n $2  ]]; then name=$2;fi
-		python3 -m venv $name
-		echo "create $name enveroment success! "
-	else
-		if [[ -n $op  ]]; then name=$op;fi
-		source $name/bin/activate 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo 'Activate Success!!'
-		else
-			echo "Error: ${name} is not env name" 
-		fi
-	fi
-}
-
-coding()
-{
-	if [[ $1 == 'md' ]]; then
-		find ~/Coding/$2 2>/dev/null
-		if [[ $? -ne 1 ]]; then
-			echo "Error : can't create folder $2. Please try again."
-		else
-			mkdir ~/Coding/$2
-			cd ~/Coding/$2
-		fi
-	elif [[ $1 == 'll' ]]; then
-		ll ~/Coding/$2
-	else
-		if [[ $1 == 'p' ]]; then
-			cd ~/Coding/play_ground
-		else
-			cd ~/Coding/$1
-		echo $PWD
-		fi
-	fi
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
-export PATH="$JAVA_HOME:$HOME/cmus/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/flutter/flutter/bin:$PATH"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(fzf --zsh)"
