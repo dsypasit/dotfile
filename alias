@@ -45,8 +45,8 @@ alias rng='ranger'
 alias t='tmux'
 alias tkr='tmux kill-ser'
 alias tks='tmux kill-ses'
-alias tkw='tmux kill-ses'
-alias tkp='tmux kill-ses'
+alias tkw='tmux kill-window'
+alias tkp='tmux kill-pane'
 
 alias Jc='$HOME/dotfile/script/Jc.sh'
 
@@ -159,7 +159,9 @@ FZF_VF() {
 FZF_MISE_VERSION() {
 	mise ls | fzf-tmux -p 80% \
 		--preview '' \
-		--bind 'ctrl-a:execute(mise use {q})+reload(mise ls)' \
+		--header 'Press CTRL-A to add lang version (like "node@18")' \
+		--bind 'ctrl-a:execute(mise use {q})+reload(mise ls)+clear-query' \
+		--bind 'ctrl-d:execute(mise rm {1}@{2})+reload(mise ls)+clear-query' \
 		--border-label='Mise version' |
 		awk '{printf "%s@%s", $1,$2}' | xargs -I _ mise use _
 }
