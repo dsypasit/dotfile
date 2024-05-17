@@ -181,15 +181,20 @@ FZF_KUBE_PODS() {
 
 FZF_PROJECT_GIT(){
 	dr=$(
-		bfs -type d -exclude \( \
+		cd && bfs -exclude \( \
 			-name .local \
 			-or -name .tmux \
-			\) -name .git \
-		-exec dirname {} \; 2>&1 | fzf-tmux -p 90% \
-		--preview 'tree -L 2 {}' \
+			-or -name go \
+			\) \
+			\( \
+			-name .git \
+			-or -name go.mod \
+			\) \
+		-exec dirname {} \; 2>&1 | uniq | fzf-tmux -p 90% \
+		--preview 'ls {}' \
 		--preview-window=up:60% \
 		--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
-	) && test $? -eq 0 && cd $dr
+	) && test $? -eq 0 && cd $HOME/$dr
 }
 
 
@@ -203,7 +208,7 @@ alias cdf=FZF_CD
 alias vf=FZF_VF
 alias msv=FZF_MISE_VERSION
 alias kgp=FZF_KUBE_PODS
-alias prj=FZF_PROJECT_GIT
+alias proj=FZF_PROJECT_GIT
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
