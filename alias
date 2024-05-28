@@ -121,13 +121,14 @@ FZF_TMUX_SWITCH_SESSION() {
 		tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1")
 		return
 	fi
-	session=$(tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
-		--border-label 'switch session' \
-		--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
-		--bind 'ctrl-a:execute(tmux new -s {q} -d )+reload(tmux ls | cut -d ":" -f1)' \
-		--bind 'ctrl-d:execute(tmux kill-ses -t {})+reload(tmux ls | cut -d ":" -f1)' \
-		--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)') &&
-		tmux $change -t "$session" || echo "No sessions found."
+	session=$(
+		tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
+			--border-label 'switch session' \
+			--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
+			--bind 'ctrl-a:execute(tmux new -s {q} -d )+reload(tmux ls | cut -d ":" -f1)' \
+			--bind 'ctrl-d:execute(tmux kill-ses -t {})+reload(tmux ls | cut -d ":" -f1)' \
+			--bind 'ctrl-r:reload(tmux ls | cut -d ":" -f1)'
+	) && tmux $change -t "$session" || echo "No sessions found."
 }
 
 FZF_CD() {
@@ -159,7 +160,7 @@ FZF_VF() {
 FZF_MISE_VERSION() {
 	mise ls | fzf-tmux -p 80% \
 		--preview '' \
-		--header 'Press CTRL-A to add lang version (like "node@18")' \
+		--header 'Press CTRL-A to add lang version (like "node@18"), CTRL-D to remove lang' \
 		--bind 'ctrl-a:execute(mise use {q})+reload(mise ls)+clear-query' \
 		--bind 'ctrl-d:execute(mise rm {1}@{2})+reload(mise ls)+clear-query' \
 		--border-label='Mise version' |
@@ -179,24 +180,24 @@ FZF_KUBE_PODS() {
 		--border-label='kube get pods' | awk '{print $1}'
 }
 
-FZF_PROJECT_GIT(){
+FZF_PROJECT_GIT() {
 	dr=$(
 		cd && bfs -exclude \( \
 			-name .local \
 			-or -name .tmux \
 			-or -name go \
+			-or -name deps \
 			\) \
 			\( \
 			-name .git \
 			-or -name go.mod \
 			\) \
-		-exec dirname {} \; 2>&1 | uniq | fzf-tmux -p 90% \
-		--preview 'ls {}' \
-		--preview-window=up:60% \
-		--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
+			-exec dirname {} \; 2>&1 | uniq | fzf-tmux -p 90% \
+			--preview 'ls {}' \
+			--preview-window=up:60% \
+			--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
 	) && test $? -eq 0 && cd $HOME/$dr
 }
-
 
 alias gl=FZF_GIT_LOG
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
@@ -208,7 +209,7 @@ alias cdf=FZF_CD
 alias vf=FZF_VF
 alias msv=FZF_MISE_VERSION
 alias kgp=FZF_KUBE_PODS
-alias proj=FZF_PROJECT_GIT
+alias prj=FZF_PROJECT_GIT
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
