@@ -18,7 +18,8 @@ export FZF_DEFAULT_COMMAND="
 			\) 2>&1
 "
 export FZF_DEFAULT_OPTS="
---height=100%
+--header 'Press CTRL-d, CTRL-u preview up, down. CTRL-b, CTRL-t to buttom, top. SPACE for exucercute NVIM AND CTRL-/ for toogle preview-window' \
+--tmux 100%,90%
 --layout=reverse
 --info=right
 --border=thinblock
@@ -27,6 +28,7 @@ export FZF_DEFAULT_OPTS="
 --bind ctrl-d:preview-down,ctrl-u:preview-up
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
 --bind 'ctrl-/:change-preview-window(down|hidden|)'
+--bind 'space:execute:nvim {}'
 --cycle
   "
 export FZF_CTRL_T_OPTS="
@@ -122,7 +124,7 @@ FZF_TMUX_SWITCH_SESSION() {
 		return
 	fi
 	session=$(
-		tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview 'tmux list-windows -t{}' \
+		tmux ls | cut -d':' -f1 | fzf-tmux -p 90% --preview-window=30% --preview 'tmux list-windows -t{}' \
 			--border-label 'switch session' \
 			--header 'Press CTRL-R to reload, CTRL-A to add, CTRL-D to delete' \
 			--bind 'ctrl-a:execute(tmux new -s {q} -d )+reload(tmux ls | cut -d ":" -f1)' \
@@ -198,6 +200,25 @@ FZF_PROJECT_GIT() {
 			--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
 	) && test $? -eq 0 && cd $HOME/$dr
 }
+
+rfv() (
+	RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+	OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            nvim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            nvim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+	fzf </dev/null \
+		--disabled --ansi --multi \
+		--bind "start:$RELOAD" --bind "change:$RELOAD" \
+		--bind "enter:become:$OPENER" \
+		--bind "ctrl-o:execute:$OPENER" \
+		--bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+		--delimiter : \
+		--preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+		--preview-window '~4,+{2}+4/3,<80(up)' \
+		--query "$*"
+)
 
 alias gl=FZF_GIT_LOG
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
