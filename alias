@@ -139,10 +139,10 @@ FZF_CD() {
 			-name .git \
 			-or -name node_modules \
 			-or -name target \
-			\) 2>&1 | fzf-tmux -p 90% \
+			\) 2>&1 | fzf \
 			--preview 'tree -L 2 {}' \
 			--preview-window=up:60% \
-			--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
+			--border-label='fzf cd'
 	) && test $? -eq 0 && cd $dr
 }
 
