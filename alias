@@ -184,21 +184,11 @@ FZF_KUBE_PODS() {
 
 FZF_PROJECT_GIT() {
 	dr=$(
-		cd && bfs -exclude \( \
-			-name .local \
-			-or -name .tmux \
-			-or -name go \
-			-or -name deps \
-			\) \
-			\( \
-			-name .git \
-			-or -name go.mod \
-			\) \
-			-exec dirname {} \; 2>&1 | uniq | fzf-tmux -p 90% \
+		fd -t d -H .git$ $HOME -E '.local/*' -E 'Library/*' -E '.tmux/*' -x dirname | uniq | fzf-tmux -p 90% \
 			--preview 'ls {}' \
 			--preview-window=up:60% \
-			--border-label='fzf cd' # fd -td --hidden 2>/dev/null | fzf-tmux -p 90% \
-	) && test $? -eq 0 && cd $HOME/$dr
+			--border-label='fzf cd'
+	) && test $? -eq 0 && cd $dr
 }
 
 rfv() (
