@@ -10,13 +10,7 @@ export FZF_TMUX_OPTS='-p80%,60%'
 export BAT_THEME="Catppuccin Mocha"
 
 # --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
-export FZF_DEFAULT_COMMAND="
-		bfs -noerror -type f -exclude \( \
-			-name .git \
-			-or -name node_modules \
-			-or -name target \
-			\) 2>&1
-"
+# export FZF_DEFAULT_COMMAND=" "
 export FZF_DEFAULT_OPTS="
 --header 'Press CTRL-d, CTRL-u preview up, down. CTRL-b, CTRL-t to buttom, top. SPACE for exucercute NVIM AND CTRL-/ for toogle preview-window' \
 --tmux 100%,90%
@@ -135,11 +129,7 @@ FZF_TMUX_SWITCH_SESSION() {
 
 FZF_CD() {
 	dr=$(
-		bfs -type d -exclude \( \
-			-name .git \
-			-or -name node_modules \
-			-or -name target \
-			\) 2>&1 | fzf \
+		fd -t d -H -E 'node_modules' -E '.git' | fzf \
 			--preview 'tree -L 2 {}' \
 			--preview-window=up:60% \
 			--border-label='fzf cd'
@@ -148,11 +138,7 @@ FZF_CD() {
 
 FZF_VF() {
 	file=$(
-		bfs -type f -exclude \( \
-			-name .git \
-			-or -name node_modules \
-			-or -name target \
-			\) 2>&1 | fzf-tmux -p 90% \
+		fd -t f -E 'node_modules' -E '.git' | fzf-tmux -p 90% \
 			--preview-window=up:60% \
 			--border-label='fzf edit file' \
 			--print0
