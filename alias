@@ -170,7 +170,13 @@ FZF_KUBE_PODS() {
 
 FZF_PROJECT_GIT() {
 	dr=$(
-		fd -t d -H .git$ $HOME -E '.local/*' -E 'Library/*' -E '.tmux/*' -x dirname | uniq | fzf-tmux -p 90% \
+		fd -t d -H .git$ $HOME \
+			-E '.cargo/*' \
+			-E '.local/*' \
+			-E 'Library/*' \
+			-E '.tmux/*' \
+			-E 'go/*' \
+			-x dirname | uniq | fzf-tmux -p 90% \
 			--preview 'ls {}' \
 			--preview-window=up:60% \
 			--border-label='fzf cd'
