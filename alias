@@ -202,6 +202,10 @@ rfv() (
 		--query "$*"
 )
 
+_CDR() {
+	cd $(git rev-parse --show-toplevel)
+}
+
 alias gl=FZF_GIT_LOG
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 alias gld=FZF_GIT_DIFF
@@ -209,6 +213,7 @@ alias gld=FZF_GIT_DIFF
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
 alias cdf=FZF_CD
+alias cdr=_CDR
 alias vf=FZF_VF
 alias msv=FZF_MISE_VERSION
 alias kgp=FZF_KUBE_PODS
