@@ -1,0 +1,7 @@
+#!/bin/bash
+tmux list-windows | awk -F ' ' '{ print $2 }' |
+	sed 's/[^a-zA-Z0-9]$//' |
+	sed 's/[\*\-]Z//g' |
+	fzf-tmux -p 50%,40% --preview '' \
+		--border-label 'switch windown' |
+	xargs tmux select-window -t
