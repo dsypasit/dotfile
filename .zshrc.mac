@@ -1,0 +1,36 @@
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(zoxide init zsh)"
+source ~/dotfile/alias
+eval "$(starship init zsh)"
+
+alias ls='lsd'
+alias ll='lsd -l'
+alias la='lsd -a'
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+source <(fzf --zsh)
+. "$HOME/.cargo/env"
+
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+# Golang environment variables
+export GOROOT=/usr/local/go
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
+
+alias fsum='pbpaste | fabric --pattern summarize'
+alias fwis='pbpaste | fabric --pattern extract_wisdom'
+alias fcommit='git diff --staged | fabric --pattern create_git_diff_commit'
+alias fdiff='git show | fabric --pattern summarize_git_diff'
+alias fwrite='pbpaste | fabric --pattern improve_writing'
+
+askcode(){
+  fabric -p coding_master $1
+}
+
+excode(){
+  fabric -p explain_code $1
+}
+
