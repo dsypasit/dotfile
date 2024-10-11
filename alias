@@ -21,6 +21,7 @@ export FZF_DEFAULT_OPTS="
 --preview-window=up:80%
 --bind ctrl-d:preview-down,ctrl-u:preview-up
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
+--bind ctrl-p:toggle-preview
 --bind 'ctrl-/:change-preview-window(down|hidden|)'
 --bind 'space:execute:nvim {}'
 --cycle
