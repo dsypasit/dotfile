@@ -13,12 +13,12 @@ export BAT_THEME="Catppuccin Mocha"
 # export FZF_DEFAULT_COMMAND=" "
 export FZF_DEFAULT_OPTS="
 --header 'Press CTRL-d, CTRL-u preview up, down. CTRL-b, CTRL-t to buttom, top. SPACE for exucercute NVIM AND CTRL-/ for toogle preview-window' \
---tmux 50%,40%
+--tmux 80%,80%
 --layout=reverse
 --info=right
 --border=thinblock
 --preview 'bat --style=numbers --color=always --line-range :500 {}'
---preview-window=up:80%
+--preview-window=up:60%
 --bind ctrl-d:preview-down,ctrl-u:preview-up
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
 --bind ctrl-p:toggle-preview
