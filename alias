@@ -90,6 +90,8 @@ alias vimstartup=" rm vim.log && nvim --startuptime vim.log -c 'q' && cat vim.lo
 
 alias lg=lazygit
 alias gs='git status'
+alias yaz='yazi'
+alias lad=lazydocker
 
 export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
 export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
