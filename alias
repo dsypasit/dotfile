@@ -223,3 +223,11 @@ alias prj=FZF_PROJECT_GIT
 
 alias dcu="docker compose up"
 alias dcd="docker compose down"
+
+ghpr() {
+	gh pr list --limit 100 --json number,title,updatedAt,author --template \
+		'{{range .}}{{tablerow .number .title .author.name (timeago .updatedAt)}}{{end}}' |
+		fzf-tmux -p 60%,40% --preview '' |
+		cut -f1 -d ' ' |
+		xargs gh pr checkout
+}
