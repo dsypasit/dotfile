@@ -23,7 +23,6 @@ export FZF_DEFAULT_OPTS="
 --bind ctrl-b:preview-bottom,ctrl-t:preview-top
 --bind ctrl-p:toggle-preview
 --bind 'ctrl-/:change-preview-window(down|hidden|)'
---bind 'space:execute:nvim {}'
 --cycle
   "
 export FZF_CTRL_T_OPTS="
@@ -236,3 +235,75 @@ alias ls=eza
 alias ll="eza -l"
 alias la="eza -a"
 alias lla="eza -la"
+
+ghw() {
+	gh run list --limit 50 --json databaseId,workflowName,headBranch,status |
+		jq -r '.[] | "\(.databaseId)\t[\(.status)] \(.workflowName) (\(.headBranch))"' |
+		fzf --ansi \
+			--preview 'gh run watch $(echo {} | cut -f1)' \
+			--preview-window=up:80%:wrap \
+			--bind "enter:execute-silent(gh run watch $(echo {} | cut -f1))"
+}
+
+ghwf() {
+  local selected_ids
+  selected_ids=$(gh workflow list --limit 100 --json name,id,state,path \
+    | jq -r '.[] | "\(.id)\t\(.name)\t\(.state)\t\(.path)"' \
+    | fzf -m --ansi --header="ID │ NAME │ STATE │ PATH" \
+            --preview="echo {}" \
+            --preview-window=down:3:wrap \
+    | cut -f1)
+
+  if [[ -z "$selected_ids" ]]; then
+    echo "🚫 No workflow selected."
+    return 1
+  fi
+
+  for workflow_id in ${(f)selected_ids}; do
+    echo "▶️ Running workflow '$workflow_id' on ref production"
+    gh workflow run "$workflow_id" --ref production
+  done
+}
+
+ghwr(){
+# Exit immediately if a command exits with a non-zero status.
+# This prevents errors from being ignored.
+set -e
+
+echo "🔎 Finding in-progress GitHub Actions runs..."
+
+# Use mapfile to reliably read each line of output into the RUN_IDS array.
+# This is the modern, safe way to create an array from command output.
+mapfile -t RUN_IDS < <(gh run list --json databaseId,status --jq '.[] | select(.status=="in_progress") | .databaseId')
+
+# Check if the array of IDs is empty.
+if [ ${#RUN_IDS[@]} -eq 0 ]; then
+  echo "✅ No in-progress runs found."
+  exit 0
+fi
+
+# If we're here, the array is not empty. Get the first element.
+FIRST_RUN=${RUN_IDS[0]}
+echo "Creating window for first run: $FIRST_RUN"
+
+# Create a new, detached window named "GH Runs" with the first command.
+WINDOW_ID=$(tmux new-window -d -P -n "GH Runs" -F '#{window_id}' "gh run watch $FIRST_RUN")
+
+# Loop through the rest of the run IDs, if any exist.
+# This syntax correctly handles the case where there's only one run in total.
+for run_id in "${RUN_IDS[@]:1}"; do
+  echo "Creating pane for run: $run_id"
+  tmux split-window -v -t "$WINDOW_ID" "gh run watch $run_id"
+done
+
+# Apply layout and provide final instruction to the user.
+tmux select-layout -t "$WINDOW_ID" tiled
+echo "🚀 Tmux window '$WINDOW_ID' is ready. To attach, run: tmux select-window -t $WINDOW_ID"
+}
+
+
+fcz() {
+  local num
+  num=$(fc -l -1000 | sort -r | fzf-tmux -p 60%,40% --preview='' | awk '{print $1}' | sed 's/\*//')
+  [ -n "$num" ] && fc "$num"
+}
