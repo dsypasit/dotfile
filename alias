@@ -304,6 +304,8 @@ echo "🚀 Tmux window '$WINDOW_ID' is ready. To attach, run: tmux select-window
 
 fcz() {
   local num
-  num=$(fc -l -1000 | sort -r | fzf-tmux -p 60%,40% --preview='' | awk '{print $1}' | sed 's/\*//')
+  num=$(fc -l -1000 | sort -r | fzf-tmux -p 60%,40% --preview='' --wrap | awk '{print $1}' | sed 's/\*//')
   [ -n "$num" ] && fc "$num"
 }
+
+alias tsource='tmux source ~/.tmux.conf'
