@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$PATH:~/dotfile/script/:
+export PATH=$PATH:~/dotfile/script/
 export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
 # . ~/dotfile/script/z.sh
 source ~/dotfile/script/ffd
@@ -176,7 +176,10 @@ FZF_PROJECT_GIT() {
 			-E '.local/*' \
 			-E 'Library/*' \
 			-E '.tmux/*' \
+			-E '*/tmux' \
 			-E 'go/*' \
+			-E '.nvm' \
+			-E '.oh-my-zsh' \
 			-x dirname | uniq | fzf \
 			--preview '' \
 			--border-label='fzf cd'
