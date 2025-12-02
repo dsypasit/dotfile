@@ -210,7 +210,7 @@ _CDR() {
 }
 
 alias gl=FZF_GIT_LOG
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
 alias gld=FZF_GIT_DIFF
 # alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
