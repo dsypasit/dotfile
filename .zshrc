@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+# Arch ships oh-my-zsh in /usr/share; Ubuntu uses the install.sh copy in ~/.oh-my-zsh.
+if [[ -d /usr/share/oh-my-zsh ]]; then ZSH=/usr/share/oh-my-zsh/; else ZSH=$HOME/.oh-my-zsh; fi
+# Third-party plugins (autosuggestions, syntax-highlighting, 256color) are cloned here by install.sh.
+ZSH_CUSTOM=$HOME/.zsh-custom
 
 # # Path to powerlevel10k theme
 # source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
@@ -7,6 +10,9 @@ ZSH=/usr/share/oh-my-zsh/
 # List of plugins used
 plugins=( git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting )
 source $ZSH/oh-my-zsh.sh
+
+# Arch only: pacman/AUR helpers
+if command -v pacman &>/dev/null; then
 
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
@@ -57,6 +63,16 @@ function in {
     fi
 }
 
+# Package manager aliases
+alias un='$aurhelper -Rns' # uninstall package
+alias up='$aurhelper -Syu' # update system/package/aur
+alias pl='$aurhelper -Qs' # list installed package
+alias pa='$aurhelper -Ss' # list availabe package
+alias pc='$aurhelper -Sc' # remove unused cache
+alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages
+
+fi # end Arch only
+
 # Helpful aliases
 alias  c='clear' # clear terminal
 alias  l='eza -lh  --icons=auto' # long list
@@ -64,12 +80,6 @@ alias ls='eza -1   --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
 alias lt='eza --icons=auto --tree' # list folder as tree
-alias un='$aurhelper -Rns' # uninstall package
-alias up='$aurhelper -Syu' # update system/package/aur
-alias pl='$aurhelper -Qs' # list installed package
-alias pa='$aurhelper -Ss' # list availabe package
-alias pc='$aurhelper -Sc' # remove unused cache
-alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='code' # gui code editor
 
 # Handy change dir shortcuts

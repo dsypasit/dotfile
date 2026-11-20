@@ -1,16 +1,17 @@
-#!/bin/bash
-export PATH=$PATH:~/dotfile/script/
-export PATH=$PATH:$HOME/.config/lsp/lua-language-server/bin
-# . ~/dotfile/script/z.sh
+# Shared aliases and helpers. Sourced by .zshrc, .zshrc.mac and .bashrc.
+# Window-manager-only aliases live in alias.wm (loaded only if install.sh chose a WM).
+
+# ---------- PATH ----------
+export PATH="$PATH:$HOME/dotfile/script"
+export PATH="$PATH:$HOME/.config/lsp/lua-language-server/bin"
+export PATH="$PATH:/usr/local/go/bin:${GOPATH:-$HOME/go}/bin:$HOME/.local/bin"
+
 source ~/dotfile/script/ffd
-alias scr="cd ~/dotfile/script"
+
+# ---------- fzf / bat ----------
+export BAT_THEME="Catppuccin Mocha"
 export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p80%,60%'
-
-export BAT_THEME="Catppuccin Mocha"
-
-# --preview 'bat --style=numbers --color=always --theme=gruvbox-dark --line-range :500 {}'
-# export FZF_DEFAULT_COMMAND=" "
 export FZF_DEFAULT_OPTS="
 --header 'Press CTRL-d, CTRL-u preview up, down. CTRL-b, CTRL-t to buttom, top. SPACE for exucercute NVIM AND CTRL-/ for toogle preview-window' \
 --tmux 80%,80%
@@ -24,89 +25,69 @@ export FZF_DEFAULT_OPTS="
 --bind ctrl-p:toggle-preview
 --bind 'ctrl-/:change-preview-window(down|hidden|)'
 --cycle
-  "
-export FZF_CTRL_T_OPTS="
---preview ''
 "
-
-export FZF_CTRL_R_OPTS="
---preview ''
-"
-
-export FZF_ALT_C_OPTS="
---preview ''
-"
-
-alias rng='ranger'
-alias t='tmux'
-alias tkr='tmux kill-ser'
-alias tks='tmux kill-ses'
-alias tkw='tmux kill-window'
-alias tkp='tmux kill-pane'
-
-alias Jc='$HOME/dotfile/script/Jc.sh'
-
-alias aqua="$HOME/dotfile/animetion.sh"
-#alias z="clear;zsh"
-alias vz="nvim ~/.zshrc"
-alias vv="nvim ~/.config/nvim/init.vim"
-alias v='nvim'
-alias pac="sudo pacman"
-alias vf="vifm"
-alias ju="jupyter notebook"
-
-alias cl='clear'
-alias rh='cd $PWD;python3 -m http.server --cgi 8080'
-alias cf='fc-list'
-alias ct="source ~/my_linux_env/bash_script/timeout.sh"
-alias fp="fzf --preview 'bat --color "always" {}'"
-alias mb="~/dotfile/backup"
-alias vb="~/scripts/nvim_backup"
-alias www='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs nitrogen --set-zoom-fill '
-alias ww='(ls -d ~/wallpapers/* | shuf -n 1 ) | xargs swww img --transition-type wipe --transition-angle 30 --transition-step 90'
-alias d='BROWSER=w3m ddgr'
-
-alias weather='clear && curl wttr.in'
-alias fetch='clear && fastfetch '
-alias mw="(mv ~/Downloads/*.png ~/wallpapers/ 2>/dev/null | mv ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null) 2>/dev/null && echo 'move wallpaper file success!!'"
-
-alias rng='ranger'
-
-alias wa="sxiv -t ~/wallpapers"
-
-alias aa="~/coding/python_project/scraping/add_anime.py $1 $2"
-alias chapter="~/coding/python_project/scraping/anime_chapters.py $1 $2"
-alias sa="~/coding/python_project/scraping/showanime.py; less ~/coding/python_project/scraping/anime_name.txt"
-alias st="$HOME/dotfile/script/show-tmux"
-alias covid="$HOME/dotfile/script/covid"
-alias runpro="$SCRIPT/runpro"
-
-alias kd="killall Discord"
-alias gis="git status"
-alias xml="~/dotfile/script/xml"
-
-alias vimstartup=" rm vim.log && nvim --startuptime vim.log -c 'q' && cat vim.log | sort -nrk 3 | head -20"
-
-alias lg=lazygit
-alias gs='git status'
-alias yaz='yazi'
-alias lad=lazydocker
-
+export FZF_CTRL_T_OPTS="--preview ''"
+export FZF_CTRL_R_OPTS="--preview ''"
+export FZF_ALT_C_OPTS="--preview ''"
 export FZF_ALT_C_COMMAND="fd --hidden -t d . $HOME"
 export FZF_CTRL_T_COMMAND="fd --hidden . $HOME"
 
-alias newip="echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051"
+# ---------- basics ----------
+alias cl='clear'
+alias v='nvim'
+alias vz='nvim ~/.zshrc'
+alias vv='nvim ~/.config/nvim/init.vim'
+alias rng='ranger'
+alias yaz='yazi'
+alias vf='FZF_VF'
+alias cf='fc-list'
+alias fp="fzf --preview 'bat --color=always {}'"
+alias ju='jupyter notebook'
+alias rh='cd $PWD; python3 -m http.server --cgi 8080'
+alias d='BROWSER=w3m ddgr'
+alias weather='clear && curl wttr.in'
+alias fetch='clear && fastfetch'
+alias vimstartup="rm -f vim.log && nvim --startuptime vim.log -c 'q' && sort -nrk 3 vim.log | head -20"
+alias newip="echo -e 'AUTHENTICATE \"\"\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051"
+alias kd='killall Discord'
+[ "$(command -v pacman)" ] && alias pac='sudo pacman'
 
+alias ls=eza
+alias ll='eza -l'
+alias la='eza -a'
+alias lla='eza -la'
+
+# ---------- dotfile scripts ----------
+alias scr='cd ~/dotfile/script'
+alias mb='~/dotfile/backup'
+alias aqua='$HOME/dotfile/animetion.sh'
+alias Jc='$HOME/dotfile/script/Jc.sh'
+alias st='$HOME/dotfile/script/show-tmux'
+alias covid='$HOME/dotfile/script/covid'
+alias xml='~/dotfile/script/xml'
+
+# ---------- tmux ----------
+alias t='tmux'
+alias tkr='tmux kill-server'
+alias tks='tmux kill-session'
+alias tkw='tmux kill-window'
+alias tkp='tmux kill-pane'
+alias tsource='tmux source ~/.tmux.conf'
+
+# ---------- git / docker ----------
+alias gs='git status'
+alias lg='lazygit'
+alias lad='lazydocker'
+alias dcu='docker compose up'
+alias dcd='docker compose down'
+
+# ---------- fzf helpers ----------
 FZF_GIT_LOG() {
 	git log --oneline --format="%C(auto)%h %s%d" | fzf --ansi --preview "git show --color=always {1}" --bind 'enter:become(echo {1})'
 }
 
 FZF_GIT_DIFF() {
 	git log --oneline --format="%C(auto)%h %s%d" | fzf --ansi --preview "git show --color=always {1}" --bind 'enter:become(echo {1})' | xargs -I {} git diff {}
-}
-
-FZF_GIT_STATUS() {
-	git status -s | fzf --preview="git diff --color=always HEAD {2}"
 }
 
 FZF_DOCKER_PS() {
@@ -159,7 +140,6 @@ FZF_MISE_VERSION() {
 FZF_KUBE_PODS() {
 	preview_cmd='kubectl describe pods {1}'
 	kubectl get pods | fzf-tmux -p 90% \
-		\
 		--preview-window=up:80% \
 		--header-lines=1 \
 		--preview "$preview_cmd" \
@@ -186,6 +166,10 @@ FZF_PROJECT_GIT() {
 	) && test $? -eq 0 && cd $dr
 }
 
+_CDR() {
+	cd "$(git rev-parse --show-toplevel)"
+}
+
 rfv() (
 	RELOAD='reload:rg --column --color=always --smart-case {q} || :'
 	OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
@@ -205,27 +189,24 @@ rfv() (
 		--query "$*"
 )
 
-_CDR() {
-	cd $(git rev-parse --show-toplevel)
+fcz() {
+	local num
+	num=$(fc -l -1000 | sort -r | fzf-tmux -p 60%,40% --preview='' --wrap | awk '{print $1}' | sed 's/\*//')
+	[ -n "$num" ] && fc "$num"
 }
 
 alias gl=FZF_GIT_LOG
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
 alias gld=FZF_GIT_DIFF
-# alias gs=FZF_GIT_STATUS
 alias dps=FZF_DOCKER_PS
 alias ts=FZF_TMUX_SWITCH_SESSION
 alias cdf=FZF_CD
 alias cdr=_CDR
-alias cdd="_CDR && FZF_CD"
-alias vf=FZF_VF
+alias cdd='_CDR && FZF_CD'
 alias msv=FZF_MISE_VERSION
 alias kgp=FZF_KUBE_PODS
 alias prj=FZF_PROJECT_GIT
 
-alias dcu="docker compose up"
-alias dcd="docker compose down"
-
+# ---------- GitHub CLI helpers ----------
 ghpr() {
 	gh pr list --limit 100 --json number,title,updatedAt,author --template \
 		'{{range .}}{{tablerow .number .title .author.name (timeago .updatedAt)}}{{end}}' |
@@ -233,11 +214,6 @@ ghpr() {
 		cut -f1 -d ' ' |
 		xargs gh pr checkout
 }
-
-alias ls=eza
-alias ll="eza -l"
-alias la="eza -a"
-alias lla="eza -la"
 
 ghw() {
 	gh run list --limit 50 --json databaseId,workflowName,headBranch,status |
@@ -248,67 +224,47 @@ ghw() {
 			--bind "enter:execute-silent(gh run watch $(echo {} | cut -f1))"
 }
 
+# Pick workflows and run them on the production ref.
 ghwf() {
-  local selected_ids
-  selected_ids=$(gh workflow list --limit 100 --json name,id,state,path \
-    | jq -r '.[] | "\(.id)\t\(.name)\t\(.state)\t\(.path)"' \
-    | fzf -m --ansi --header="ID │ NAME │ STATE │ PATH" \
-            --preview="echo {}" \
-            --preview-window=down:3:wrap \
-    | cut -f1)
+	local selected_ids workflow_id
+	selected_ids=$(gh workflow list --limit 100 --json name,id,state,path |
+		jq -r '.[] | "\(.id)\t\(.name)\t\(.state)\t\(.path)"' |
+		fzf -m --ansi --header="ID │ NAME │ STATE │ PATH" \
+			--preview="echo {}" \
+			--preview-window=down:3:wrap |
+		cut -f1)
 
-  if [[ -z "$selected_ids" ]]; then
-    echo "🚫 No workflow selected."
-    return 1
-  fi
+	if [ -z "$selected_ids" ]; then
+		echo "No workflow selected."
+		return 1
+	fi
 
-  for workflow_id in ${(f)selected_ids}; do
-    echo "▶️ Running workflow '$workflow_id' on ref production"
-    gh workflow run "$workflow_id" --ref production
-  done
+	echo "$selected_ids" | while read -r workflow_id; do
+		echo "Running workflow '$workflow_id' on ref production"
+		gh workflow run "$workflow_id" --ref production
+	done
 }
 
-ghwr(){
-# Exit immediately if a command exits with a non-zero status.
-# This prevents errors from being ignored.
-set -e
+# Watch every in-progress run, one tmux pane per run.
+ghwr() {
+	local run_ids first_run window_id run_id
+	run_ids=$(gh run list --json databaseId,status --jq '.[] | select(.status=="in_progress") | .databaseId')
 
-echo "🔎 Finding in-progress GitHub Actions runs..."
+	if [ -z "$run_ids" ]; then
+		echo "No in-progress runs found."
+		return 0
+	fi
 
-# Use mapfile to reliably read each line of output into the RUN_IDS array.
-# This is the modern, safe way to create an array from command output.
-mapfile -t RUN_IDS < <(gh run list --json databaseId,status --jq '.[] | select(.status=="in_progress") | .databaseId')
+	first_run=$(echo "$run_ids" | head -n 1)
+	window_id=$(tmux new-window -d -P -n "GH Runs" -F '#{window_id}' "gh run watch $first_run")
 
-# Check if the array of IDs is empty.
-if [ ${#RUN_IDS[@]} -eq 0 ]; then
-  echo "✅ No in-progress runs found."
-  exit 0
-fi
+	echo "$run_ids" | tail -n +2 | while read -r run_id; do
+		tmux split-window -v -t "$window_id" "gh run watch $run_id"
+	done
 
-# If we're here, the array is not empty. Get the first element.
-FIRST_RUN=${RUN_IDS[0]}
-echo "Creating window for first run: $FIRST_RUN"
-
-# Create a new, detached window named "GH Runs" with the first command.
-WINDOW_ID=$(tmux new-window -d -P -n "GH Runs" -F '#{window_id}' "gh run watch $FIRST_RUN")
-
-# Loop through the rest of the run IDs, if any exist.
-# This syntax correctly handles the case where there's only one run in total.
-for run_id in "${RUN_IDS[@]:1}"; do
-  echo "Creating pane for run: $run_id"
-  tmux split-window -v -t "$WINDOW_ID" "gh run watch $run_id"
-done
-
-# Apply layout and provide final instruction to the user.
-tmux select-layout -t "$WINDOW_ID" tiled
-echo "🚀 Tmux window '$WINDOW_ID' is ready. To attach, run: tmux select-window -t $WINDOW_ID"
+	tmux select-layout -t "$window_id" tiled
+	echo "Tmux window '$window_id' is ready. To attach, run: tmux select-window -t $window_id"
 }
 
-
-fcz() {
-  local num
-  num=$(fc -l -1000 | sort -r | fzf-tmux -p 60%,40% --preview='' --wrap | awk '{print $1}' | sed 's/\*//')
-  [ -n "$num" ] && fc "$num"
-}
-
-alias tsource='tmux source ~/.tmux.conf'
+# ---------- window manager (only if install.sh picked one) ----------
+[ -f "$HOME/.config/dotfile-wm" ] && source ~/dotfile/alias.wm

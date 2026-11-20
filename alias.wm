@@ -1,0 +1,16 @@
+# Window-manager-only aliases. Loaded from alias when ~/.config/dotfile-wm exists.
+# That file holds the WM chosen by install.sh: i3 or hyprland.
+
+WM="$(cat "$HOME/.config/dotfile-wm" 2>/dev/null)"
+
+alias wa='sxiv -t ~/wallpapers'
+alias mw="mv ~/Downloads/*.png ~/Downloads/*.jpg ~/wallpapers/ 2>/dev/null && echo 'move wallpaper file success!!'"
+
+case "$WM" in
+i3)
+	alias www='ls -d ~/wallpapers/* | shuf -n 1 | xargs nitrogen --set-zoom-fill'
+	;;
+hyprland)
+	alias ww='ls -d ~/wallpapers/* | shuf -n 1 | xargs swww img --transition-type wipe --transition-angle 30 --transition-step 90'
+	;;
+esac
